@@ -1,0 +1,7 @@
+{
+  "name": "nfgitbook",
+  "version": "1.0.0",
+  "devDependencies": {
+    "gitbook-cli": "^2.3.2"
+  }
+}
