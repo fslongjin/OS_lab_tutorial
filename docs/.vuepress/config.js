@@ -11,7 +11,7 @@ module.exports = {
 			items: [
 				{ text: '实验1-熟悉类Linux系统', link: '/Lab/Lab1' },
 				{ text: '实验2-进程创建与进程间通信', link: '/Lab/Lab2' },
-				{ text: '实验3-进程调度算法', link: '/Lab/Lab3' },
+				{ text: '实验3-进程调度算法', link: '/Lab/Lab3/' },
 				{ text: '实验4-存储管理算法', link: '/Lab/Lab4' },
 				{ text: '实验5-文件管理系统', link: '/Lab/Lab5' },
 				{ text: '实验6-网络编程(暂定)', link: '/Lab/Lab6' }
@@ -44,13 +44,27 @@ module.exports = {
 			link: '/about'
 		}
 	],
-	//sidebar: {
-		//'/': [
-			//'',
-			//'Lab-1',
-		//	'Lab-2',
-			//'Lab-3'
-		//]
-    //}
+	sidebar: {
+		'/Lab/Lab3/': [
+			{
+				title: '进程调度',
+				children: [
+					['', '任务说明'],
+					['RR', 'RR调度算法'],
+					['SJF', 'SJF调度算法'],
+					['CFS', 'CFS调度算法'],
+					['MLFQ', 'MLFQ调度算法'],
+				],
+			},
+		],
+		'/Lab/Lab4/': [
+			{
+				title: '存储管理',
+				children: [
+					['', '任务说明'],
+				],
+			},
+		],
+    }
   }
 }
