@@ -12,7 +12,7 @@ module.exports = {
 				{ text: '实验1-熟悉类Linux系统', link: '/Lab/Lab1' },
 				{ text: '实验2-进程创建与进程间通信', link: '/Lab/Lab2' },
 				{ text: '实验3-进程调度算法', link: '/Lab/Lab3/' },
-				{ text: '实验4-存储管理算法', link: '/Lab/Lab4' },
+				{ text: '实验4-存储管理算法', link: '/Lab/Lab4/' }, // 这里 /Lab/Lab4/ 表明路径是目录
 				{ text: '实验5-文件管理系统', link: '/Lab/Lab5' },
 				{ text: '实验6-网络编程(暂定)', link: '/Lab/Lab6' }
 			]
@@ -62,6 +62,9 @@ module.exports = {
 				title: '存储管理',
 				children: [
 					['', '任务说明'],
+					['FIFO', 'FIFO页面置换算法'],
+					['LRU', 'LRU页面置换算法'],
+					['CLOCK', 'CLOCK页面置换算法'],
 				],
 			},
 		],
