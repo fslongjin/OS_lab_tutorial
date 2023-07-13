@@ -123,11 +123,3 @@ int main() {
 
 
 
-## 参考资料
-
-[1] [CFS Scheduler — The Linux Kernel documentation](https://docs.kernel.org/scheduler/sched-design-CFS.html)
-
-[2] [深入详解完全公平调度算法](https://zhuanlan.zhihu.com/p/486037199)
-
-
-

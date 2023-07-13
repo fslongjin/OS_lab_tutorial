@@ -20,48 +20,36 @@
 
 ## 实验步骤
 
-​	接上文，在这里继续完成置换算法的实现
+（1）因为FIFO算法中没有利用到`read`、`write`的标记，所以我们可以简答使用int类型整数来记录虚页号和实页号完成置换算法的实现：
 
 ```cpp
-// 假设页面的结构体定义如下
-struct Page {
-  int read; // 读标志
-  int write; // 写标志
-  int time_arrive; // 到达时间
-  int time_access; // 访问时间
-};
-
 // 定义一个页面置换算法FIFO类
 class FIFO {
 private:
   int page_num; // 页面数量
   int mem_size; // 内存大小
-  Page* pages; // 页面数组
-  Page** memory; // 内存数组
+  int* memory; // 内存数组
   int page_faults; // 缺页次数
   int mem_index; // 内存指针
 
 public:
-  // 构造函数，根据给定的页面数量，内存大小和页面数组初始化类的成员变量
-  FIFO(int pn, int ms, Page* ps) {
-    page_num = pn;
+  // 构造函数，根据给定的 内存大小（也就是实页数量） 初始化类的成员变量
+  FIFO(int ms) {
     mem_size = ms;
-    pages = ps;
-    memory = new Page*[mem_size]; // 动态分配内存数组的空间
-    for (int i = 0; i < mem_size; i++) { // 初始化内存数组，开始时都为空
-      memory[i] = nullptr;
-    }
-    page_faults = 0;
-    mem_index = 0;
+    memory = new int[ms];
   }
 
-  // 析构函数，释放内存数组的空间
   ~FIFO() {
-    delete[] memory;
+    delete memory;
   }
 
   // 执行页面置换算法的函数，根据给定的页面访问序列进行操作，并输出结果
-  void run(Page* query[], int len) {
+  void run(int query[], int len) {
+    // 初始化
+    page_faults = 0;
+    mem_index = 0;
+    memset(memory, -1, sizeof(int) * mem_size);
+
     for (int i = 0; i < len; i++) { // 遍历所有页面访问序列
       bool hit = false; // 是否命中标志
       for (int j = 0; j < mem_size; j++) { // 遍历所有内存块
@@ -71,6 +59,7 @@ public:
         }
       }
       if (!hit) { // 如果没有命中
+        cout << "Page_Fault query[" << i << "] virutal_page_number: " << query[i] << endl;
         page_faults++; // 缺页次数加一
         memory[mem_index] = query[i]; // 将当前访问的页面放入内存中，替换最先进入的页面
         mem_index = (mem_index + 1) % mem_size; // 更新内存指针，循环移动
@@ -83,8 +72,8 @@ public:
     cout << "Memory contents: " << endl;
     for (int i = 0; i < mem_size; i++) {
       cout << "Memory block " << i << ": ";
-      if (memory[i] != nullptr) {
-        cout << "Page " << memory[i] - pages << endl;
+      if (memory[i] != 0) {
+        cout << "Page " << memory[i] << endl;
       } else {
         cout << "Empty" << endl;
       }
@@ -95,11 +84,27 @@ public:
 
 
 
+（2）使用main函数编写测试样例：
+
+```cpp
+int main() {
+    // 在该测试样例中，使用了2个实页，以及FIFO算法，导致7次访问全都page_fault
+
+    FIFO sched(2);
+    int query[] = {0, 1, 2, 0, 1, 2, 3};
+    sched.run(query, 7);
+}
+```
+
+
+
+
+
 
 
 ## 实验样例
 
-
+![image-20230713200134638](D:\DragonOS\dragonos4edu\docs\.vuepress\public\lab4\FIFO_result.png)
 
 
 
