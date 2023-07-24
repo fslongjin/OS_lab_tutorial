@@ -275,7 +275,7 @@ int main() {
 
 ## 实验结果
 
-![image-20230710173552858](D:\DragonOS\dragonos4edu\docs\.vuepress\public\lab3\cfs-result.png)
+<img src="D:\DragonOS\dragonos4edu\docs\.vuepress\public\lab3\cfs-result.png" alt="image-20230710173552858" style="zoom:80%;" />
 
 
 

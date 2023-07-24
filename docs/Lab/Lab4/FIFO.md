@@ -104,7 +104,7 @@ int main() {
 
 ## 实验样例
 
-![image-20230713200134638](D:\DragonOS\dragonos4edu\docs\.vuepress\public\lab4\FIFO_result.png)
+<img src="D:\DragonOS\dragonos4edu\docs\.vuepress\public\lab4\FIFO_result.png" alt="image-20230713200134638" style="zoom:80%;" />
 
 
 
