@@ -38,4 +38,6 @@ jobs:
       - name: Run docs
         run: |
           npm install
+          npm install -D vuepress
+          npm run docs:dev 
       
