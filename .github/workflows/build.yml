@@ -37,5 +37,6 @@ jobs:
         
       - name: Run docs
         run: |
-          npm install && npm run docs:dev
+          npm install
+          npm run docs:dev
       
