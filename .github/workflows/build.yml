@@ -39,7 +39,7 @@ jobs:
         
       - name: Run docs
         run: |
-          pw
+          pwd
           npm install
           npm run docs:dev 
       
