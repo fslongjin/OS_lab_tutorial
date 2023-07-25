@@ -1,5 +1,5 @@
 module.exports = {
-  // base: '/OS_lab_tutorial/',
+  base: '/OS_lab_tutorial/',
   title: '操作系统实验',
   description: 'Welcome!',
   themeConfig: {
