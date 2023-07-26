@@ -1,0 +1,1 @@
+npm run docs:build  && cd ./docs/.vuepress/dist && git init && git add -A && git commit -m "deploy" && git push -f git@github.com:DragonOS-Community/OS_lab_tutorial.git master:gh-pages
