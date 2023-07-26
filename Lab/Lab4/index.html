@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>实验四 - 页面置换算法 | 操作系统实验</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    
+    <meta name="description" content="Welcome!">
+    
+    <link rel="preload" href="/OS_lab_tutorial/assets/css/0.styles.2f6240cd.css" as="style"><link rel="preload" href="/OS_lab_tutorial/assets/js/app.89178a6a.js" as="script"><link rel="preload" href="/OS_lab_tutorial/assets/js/2.c8cb3ded.js" as="script"><link rel="preload" href="/OS_lab_tutorial/assets/js/29.2ce29199.js" as="script"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/10.5ebf413d.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/11.200f74b4.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/12.4cc6c98d.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/13.998b891f.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/14.6b7a4b5a.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/15.bc4d5a7a.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/16.8ebd2fe3.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/17.8d1b5bf3.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/18.9c87ca2c.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/19.e6faabc9.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/20.e058da2f.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/21.10fa2e7e.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/22.375e31fe.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/23.315d5d26.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/24.d71214e7.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/25.16a1534c.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/26.c147a9df.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/27.2fa28835.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/28.927599e9.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/3.5abf2526.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/30.2fd6251c.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/31.85f590ac.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/32.5915c657.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/33.9a9ef205.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/4.6e900440.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/5.181e85ad.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/6.57c94bd7.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/7.f0cd3fe5.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/8.3ff2a59e.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/9.273b3972.js">
+    <link rel="stylesheet" href="/OS_lab_tutorial/assets/css/0.styles.2f6240cd.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/OS_lab_tutorial/" class="home-link router-link-active"><!----> <span class="site-name">操作系统实验</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/OS_lab_tutorial/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="实验教程" class="dropdown-title"><span class="title">实验教程</span> <span class="arrow down"></span></button> <button type="button" aria-label="实验教程" class="mobile-dropdown-title"><span class="title">实验教程</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab1.html" class="nav-link">
+  实验1-熟悉类Linux系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab2.html" class="nav-link">
+  实验2-进程创建与进程间通信
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab3/" class="nav-link">
+  实验3-进程调度算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab4/" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  实验4-存储管理算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab5.html" class="nav-link">
+  实验5-文件管理系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab6.html" class="nav-link">
+  实验6-网络编程(暂定)
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程练习" class="dropdown-title"><span class="title">课程练习</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程练习" class="mobile-dropdown-title"><span class="title">课程练习</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab1.html" class="nav-link">
+  实验1-熟悉类Linux系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab2.html" class="nav-link">
+  实验2-进程创建与进程间通信
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab3.html" class="nav-link">
+  实验3-进程调度算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab4.html" class="nav-link">
+  实验4-存储管理算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab5.html" class="nav-link">
+  实验5-文件管理系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab6.html" class="nav-link">
+  实验6-网络编程(暂定)
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="附录" class="dropdown-title"><span class="title">附录</span> <span class="arrow down"></span></button> <button type="button" aria-label="附录" class="mobile-dropdown-title"><span class="title">附录</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab1.html" class="nav-link">
+  实验1-熟悉类Linux系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab2.html" class="nav-link">
+  实验2-进程创建与进程间通信
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab3.html" class="nav-link">
+  实验3-进程调度算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab4.html" class="nav-link">
+  实验4-存储管理算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab5.html" class="nav-link">
+  实验5-文件管理系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab6.html" class="nav-link">
+  实验6-网络编程(暂定)
+</a></li></ul></div></div><div class="nav-item"><a href="/OS_lab_tutorial/about.html" class="nav-link">
+  关于我们
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/OS_lab_tutorial/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="实验教程" class="dropdown-title"><span class="title">实验教程</span> <span class="arrow down"></span></button> <button type="button" aria-label="实验教程" class="mobile-dropdown-title"><span class="title">实验教程</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab1.html" class="nav-link">
+  实验1-熟悉类Linux系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab2.html" class="nav-link">
+  实验2-进程创建与进程间通信
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab3/" class="nav-link">
+  实验3-进程调度算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab4/" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  实验4-存储管理算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab5.html" class="nav-link">
+  实验5-文件管理系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab6.html" class="nav-link">
+  实验6-网络编程(暂定)
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程练习" class="dropdown-title"><span class="title">课程练习</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程练习" class="mobile-dropdown-title"><span class="title">课程练习</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab1.html" class="nav-link">
+  实验1-熟悉类Linux系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab2.html" class="nav-link">
+  实验2-进程创建与进程间通信
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab3.html" class="nav-link">
+  实验3-进程调度算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab4.html" class="nav-link">
+  实验4-存储管理算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab5.html" class="nav-link">
+  实验5-文件管理系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab6.html" class="nav-link">
+  实验6-网络编程(暂定)
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="附录" class="dropdown-title"><span class="title">附录</span> <span class="arrow down"></span></button> <button type="button" aria-label="附录" class="mobile-dropdown-title"><span class="title">附录</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab1.html" class="nav-link">
+  实验1-熟悉类Linux系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab2.html" class="nav-link">
+  实验2-进程创建与进程间通信
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab3.html" class="nav-link">
+  实验3-进程调度算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab4.html" class="nav-link">
+  实验4-存储管理算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab5.html" class="nav-link">
+  实验5-文件管理系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab6.html" class="nav-link">
+  实验6-网络编程(暂定)
+</a></li></ul></div></div><div class="nav-item"><a href="/OS_lab_tutorial/about.html" class="nav-link">
+  关于我们
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>存储管理</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/OS_lab_tutorial/Lab/Lab4/" aria-current="page" class="active sidebar-link">任务说明</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Lab/Lab4/#前言" class="sidebar-link">前言</a></li><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Lab/Lab4/#一、实验目的" class="sidebar-link">一、实验目的</a></li><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Lab/Lab4/#二、实验原理" class="sidebar-link">二、实验原理</a></li><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Lab/Lab4/#三、实验步骤" class="sidebar-link">三、实验步骤</a></li><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Lab/Lab4/#课外资料" class="sidebar-link">课外资料</a></li></ul></li><li><a href="/OS_lab_tutorial/Lab/Lab4/FIFO.html" class="sidebar-link">FIFO页面置换算法</a></li><li><a href="/OS_lab_tutorial/Lab/Lab4/LRU.html" class="sidebar-link">LRU页面置换算法</a></li><li><a href="/OS_lab_tutorial/Lab/Lab4/CLOCK.html" class="sidebar-link">CLOCK页面置换算法</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="实验四-页面置换算法"><a href="#实验四-页面置换算法" class="header-anchor">#</a> 实验四 - 页面置换算法</h1> <h2 id="前言"><a href="#前言" class="header-anchor">#</a> 前言</h2> <p>（1）为什么要引入页面置换？</p> <p>（2）页面置换的性能指标是什么</p> <p>（3）页面置换算法的实现</p> <h2 id="一、实验目的"><a href="#一、实验目的" class="header-anchor">#</a> 一、实验目的</h2> <p>​	请求页式管理是现代通用操作系统中最常用的一种虚拟存储管理技术，本实验的目的是通过模拟请求页式存储管理中的页面替换算法，了解虚拟存储技术的特点，认识操作系统对内存的管理。</p> <h2 id="二、实验原理"><a href="#二、实验原理" class="header-anchor">#</a> 二、实验原理</h2> <p>（1）回顾请求页式管理：</p> <p>​	进程运行时，若其访问的页面不在内存中，而需将其调入，但是内存已无空闲内存时，就需要从内存中调出一页程序或数据，送入磁盘的对换区(swap分区)。<strong>选择调出页面的算法就叫页面置换算法。</strong></p> <p>（2）页面算法好坏的评估指标：</p> <p>​	好的页面置换算法应有较低的页面更换频率，即应将以后不会再访问或以后较长时间不会访问的页面先调出。总的来说就是：具有较小的缺页中断次数。</p> <ul><li>缺页中断：CPU在检索页表的时候发现进程要访问的页面不在物理内存中，就会发出一个Page Fault。</li></ul> <h2 id="三、实验步骤"><a href="#三、实验步骤" class="header-anchor">#</a> 三、实验步骤</h2> <h3 id="_1-数据类型"><a href="#_1-数据类型" class="header-anchor">#</a> 1. 数据类型</h3> <p>（1）你需要一个class类或者struct来表示已经存在物理内存中的页框Page的信息，至少需要包含：</p> <ul><li>page_number表示页号</li> <li>read、write来表示页面是否被读写，以便在页面替换的时候判断是否需要把页面写回磁盘。</li></ul> <p>​	此外，根据你实验的算法的不同，你可以为该Page类添加更多的成员变量，比如：</p> <table><thead><tr><th style="text-align:center;">变量名</th> <th style="text-align:center;">内涵</th></tr></thead> <tbody><tr><td style="text-align:center;">time_arrive</td> <td style="text-align:center;">页面调入物理内存的时间点</td></tr> <tr><td style="text-align:center;">time_access</td> <td style="text-align:center;">最近一次被访问的时间点</td></tr></tbody></table> <p>（2）你需要设置一个变量MemPageNumber来表示内存中实页的数量。</p> <h3 id="_2-算法模型"><a href="#_2-算法模型" class="header-anchor">#</a> 2. 算法模型</h3> <p>​	选取以下算法为主题，实现一个页面调度算法，并输出<strong>页面命中率</strong>或者<strong>缺页次数</strong>。</p> <ul><li>FIFO</li> <li>LRU</li> <li>CLOCK</li></ul> <h2 id="课外资料"><a href="#课外资料" class="header-anchor">#</a> 课外资料</h2></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><!----> <span class="next"><a href="/OS_lab_tutorial/Lab/Lab4/FIFO.html">
+        FIFO页面置换算法
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/OS_lab_tutorial/assets/js/app.89178a6a.js" defer></script><script src="/OS_lab_tutorial/assets/js/2.c8cb3ded.js" defer></script><script src="/OS_lab_tutorial/assets/js/29.2ce29199.js" defer></script>
+  </body>
+</html>

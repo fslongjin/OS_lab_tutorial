@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Lab-1 熟悉类Linux系统的命令 | 操作系统实验</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    
+    <meta name="description" content="Welcome!">
+    
+    <link rel="preload" href="/OS_lab_tutorial/assets/css/0.styles.2f6240cd.css" as="style"><link rel="preload" href="/OS_lab_tutorial/assets/js/app.89178a6a.js" as="script"><link rel="preload" href="/OS_lab_tutorial/assets/js/2.c8cb3ded.js" as="script"><link rel="preload" href="/OS_lab_tutorial/assets/js/19.e6faabc9.js" as="script"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/10.5ebf413d.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/11.200f74b4.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/12.4cc6c98d.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/13.998b891f.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/14.6b7a4b5a.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/15.bc4d5a7a.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/16.8ebd2fe3.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/17.8d1b5bf3.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/18.9c87ca2c.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/20.e058da2f.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/21.10fa2e7e.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/22.375e31fe.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/23.315d5d26.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/24.d71214e7.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/25.16a1534c.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/26.c147a9df.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/27.2fa28835.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/28.927599e9.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/29.2ce29199.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/3.5abf2526.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/30.2fd6251c.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/31.85f590ac.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/32.5915c657.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/33.9a9ef205.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/4.6e900440.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/5.181e85ad.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/6.57c94bd7.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/7.f0cd3fe5.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/8.3ff2a59e.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/9.273b3972.js">
+    <link rel="stylesheet" href="/OS_lab_tutorial/assets/css/0.styles.2f6240cd.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/OS_lab_tutorial/" class="home-link router-link-active"><!----> <span class="site-name">操作系统实验</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/OS_lab_tutorial/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="实验教程" class="dropdown-title"><span class="title">实验教程</span> <span class="arrow down"></span></button> <button type="button" aria-label="实验教程" class="mobile-dropdown-title"><span class="title">实验教程</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab1.html" class="nav-link">
+  实验1-熟悉类Linux系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab2.html" class="nav-link">
+  实验2-进程创建与进程间通信
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab3/" class="nav-link">
+  实验3-进程调度算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab4/" class="nav-link">
+  实验4-存储管理算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab5.html" class="nav-link">
+  实验5-文件管理系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab6.html" class="nav-link">
+  实验6-网络编程(暂定)
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程练习" class="dropdown-title"><span class="title">课程练习</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程练习" class="mobile-dropdown-title"><span class="title">课程练习</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab1.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  实验1-熟悉类Linux系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab2.html" class="nav-link">
+  实验2-进程创建与进程间通信
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab3.html" class="nav-link">
+  实验3-进程调度算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab4.html" class="nav-link">
+  实验4-存储管理算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab5.html" class="nav-link">
+  实验5-文件管理系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab6.html" class="nav-link">
+  实验6-网络编程(暂定)
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="附录" class="dropdown-title"><span class="title">附录</span> <span class="arrow down"></span></button> <button type="button" aria-label="附录" class="mobile-dropdown-title"><span class="title">附录</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab1.html" class="nav-link">
+  实验1-熟悉类Linux系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab2.html" class="nav-link">
+  实验2-进程创建与进程间通信
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab3.html" class="nav-link">
+  实验3-进程调度算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab4.html" class="nav-link">
+  实验4-存储管理算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab5.html" class="nav-link">
+  实验5-文件管理系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab6.html" class="nav-link">
+  实验6-网络编程(暂定)
+</a></li></ul></div></div><div class="nav-item"><a href="/OS_lab_tutorial/about.html" class="nav-link">
+  关于我们
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/OS_lab_tutorial/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="实验教程" class="dropdown-title"><span class="title">实验教程</span> <span class="arrow down"></span></button> <button type="button" aria-label="实验教程" class="mobile-dropdown-title"><span class="title">实验教程</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab1.html" class="nav-link">
+  实验1-熟悉类Linux系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab2.html" class="nav-link">
+  实验2-进程创建与进程间通信
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab3/" class="nav-link">
+  实验3-进程调度算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab4/" class="nav-link">
+  实验4-存储管理算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab5.html" class="nav-link">
+  实验5-文件管理系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab6.html" class="nav-link">
+  实验6-网络编程(暂定)
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程练习" class="dropdown-title"><span class="title">课程练习</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程练习" class="mobile-dropdown-title"><span class="title">课程练习</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab1.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  实验1-熟悉类Linux系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab2.html" class="nav-link">
+  实验2-进程创建与进程间通信
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab3.html" class="nav-link">
+  实验3-进程调度算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab4.html" class="nav-link">
+  实验4-存储管理算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab5.html" class="nav-link">
+  实验5-文件管理系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab6.html" class="nav-link">
+  实验6-网络编程(暂定)
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="附录" class="dropdown-title"><span class="title">附录</span> <span class="arrow down"></span></button> <button type="button" aria-label="附录" class="mobile-dropdown-title"><span class="title">附录</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab1.html" class="nav-link">
+  实验1-熟悉类Linux系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab2.html" class="nav-link">
+  实验2-进程创建与进程间通信
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab3.html" class="nav-link">
+  实验3-进程调度算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab4.html" class="nav-link">
+  实验4-存储管理算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab5.html" class="nav-link">
+  实验5-文件管理系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab6.html" class="nav-link">
+  实验6-网络编程(暂定)
+</a></li></ul></div></div><div class="nav-item"><a href="/OS_lab_tutorial/about.html" class="nav-link">
+  关于我们
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Lab-1 熟悉类Linux系统的命令</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/OS_lab_tutorial/Assignment/Lab1.html#本节导读" class="sidebar-link">本节导读</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/OS_lab_tutorial/Assignment/Lab1.html#实验内容" class="sidebar-link">实验内容</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Assignment/Lab1.html#简单命令的使用" class="sidebar-link">简单命令的使用</a></li><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Assignment/Lab1.html#浏览文件系统" class="sidebar-link">浏览文件系统</a></li><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Assignment/Lab1.html#对文件和目录操作" class="sidebar-link">对文件和目录操作</a></li><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Assignment/Lab1.html#vi编辑器的使用" class="sidebar-link">vi编辑器的使用</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="lab-1-熟悉类linux系统的命令"><a href="#lab-1-熟悉类linux系统的命令" class="header-anchor">#</a> Lab-1 熟悉类Linux系统的命令</h1> <h2 id="本节导读"><a href="#本节导读" class="header-anchor">#</a> 本节导读</h2> <p>通过练习掌握Linux一般命令格式，掌握有关文件和目录操作的常用命令，学会使用vi编辑器建立、编辑、显示及加工处理文本文件。</p> <h2 id="实验内容"><a href="#实验内容" class="header-anchor">#</a> 实验内容</h2> <h3 id="简单命令的使用"><a href="#简单命令的使用" class="header-anchor">#</a> 简单命令的使用</h3> <p>使用以下命令，看看系统会输出什么：</p> <p><code>date</code>命令：显示或设置系统的日期或时间</p> <p><code>cal</code>命令：显示公元1-9999年中任意一年或任意一个月的日历</p> <p><code>who</code>命令：列出所有正在使用系统的用户、所有终端名和注册到系统的时间</p> <p><code>clear</code>命令：清除屏幕上的信息</p> <p>如果你忘了命令对应的功能或如何使用它们，请尝试使用<code>man</code>和<code>help</code>命令寻求帮助</p> <h3 id="浏览文件系统"><a href="#浏览文件系统" class="header-anchor">#</a> 浏览文件系统</h3> <ol><li><p>运行<code>pwd</code>命令，查看当前工作目录</p></li> <li><p>运行<code>ls -l</code>命令，尝试理解输出各字段的含义</p></li> <li><p>运行<code>ls -ai</code>命令，看看发生了什么变化，尝试理解输出各字段的含义</p></li> <li><p>使用cd命令，将工作目录更改到根目录上</p></li></ol> <div class="language-shell extra-class"><pre class="language-shell"><code>$ <span class="token builtin class-name">cd</span> /
+</code></pre></div><p>再次运行<code>ls -l</code>命令，查看该目录下有哪些东西，了解各目录的作用</p> <ol start="5"><li><p>这时如果直接使用<code>cd</code>命令，当前路径是什么？尝试使用相应命令查看并验证</p></li> <li><p>使用mkdir建立一个子目录subdir</p></li></ol> <div class="language-shell extra-class"><pre class="language-shell"><code>$ <span class="token function">mkdir</span> subdir
+</code></pre></div><ol start="7"><li>子目录创建成功了吗？让我们使用<code>ls</code>命令查看，并将工作目录更改到subdir</li></ol> <div class="language-shell extra-class"><pre class="language-shell"><code>$ <span class="token function">ls</span>
+$ <span class="token builtin class-name">cd</span> subdir
+</code></pre></div><h3 id="对文件和目录操作"><a href="#对文件和目录操作" class="header-anchor">#</a> 对文件和目录操作</h3> <ol><li>运行date &gt; file1，然后运行cat file1，我们将看到什么信息？</li></ol> <div class="language-shell extra-class"><pre class="language-shell"><code>$ <span class="token function">date</span> <span class="token operator">&gt;</span> file1
+$ <span class="token function">cat</span> file1
+</code></pre></div><ol start="2"><li>尝试运行<code>cat subdir</code>，会有什么结果？如果回到上一个目录，再次运行，又会有什么结果？为什么？</li></ol> <div class="language-shell extra-class"><pre class="language-shell"><code>$ <span class="token function">cat</span> subdir
+$ <span class="token builtin class-name">cd</span> <span class="token punctuation">..</span>/
+</code></pre></div><ol start="3"><li>运行<code>man date &gt;&gt;file1</code>，我们能看到什么？再运行cat file1，又看到什么？</li></ol> <div class="language-shell extra-class"><pre class="language-shell"><code>$ <span class="token function">man</span> <span class="token function">date</span> <span class="token operator">&gt;&gt;</span>file1
+$ <span class="token function">cat</span> file1
+</code></pre></div><ol start="4"><li>利用<code>ls -l file1</code>，该文件链接计数是多少？运行<code>ln file1 ../fa</code>，再运行<code>ls -l file1</code>，看链接计数有无变化？</li></ol> <div class="language-shell extra-class"><pre class="language-shell"><code>$ <span class="token function">ls</span> <span class="token parameter variable">-l</span> file1
+$ <span class="token function">ln</span> file1 <span class="token punctuation">..</span>/fa
+</code></pre></div><ol start="5"><li><p>用cat命令显示fa文件内容，注意fa文件所在位置，理解<code>ln</code>命令的作用是什么。</p></li> <li><p>尝试显示file1的前10行，后10行。</p></li></ol> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 尝试使用多种方法</span>
+$ <span class="token function">head</span> <span class="token parameter variable">-10</span> file1
+$ <span class="token function">cat</span> file1 <span class="token operator">|</span> <span class="token function">tail</span> <span class="token parameter variable">-n</span> <span class="token number">10</span>
+</code></pre></div><ol start="7"><li>运行<code>cp file1 file2</code>，然后<code>ls -l</code>，会看到什么？运行<code>mv file2 file3</code>，然后<code>ls -l</code>，又看到什么？运行<code>cat f*</code>，结果如何？</li></ol> <div class="language-shell extra-class"><pre class="language-shell"><code>$ <span class="token function">cp</span> file1 file2
+$ <span class="token function">mv</span> file2 file3
+$ <span class="token function">cat</span> f*
+</code></pre></div><ol start="8"><li>运行<code>rm file3</code>，然后<code>ls -l</code>，结果如何？</li></ol> <div class="language-shell extra-class"><pre class="language-shell"><code>$ <span class="token function">rm</span> file3
+$ <span class="token function">ls</span> –l
+</code></pre></div><h3 id="vi编辑器的使用"><a href="#vi编辑器的使用" class="header-anchor">#</a> vi编辑器的使用</h3> <ol><li>建立一个文件，如file.c。输入一个C语言程序的各行内容，故意制造几处错误。</li></ol> <blockquote><p>这里有多种方式，你可以通过<code>touch 文件名</code>来建立空白文件，接着在对应文件夹下使用<code>vi 文件名</code>进行操作</p> <p>或者，直接通过打开vi编辑器，进入插入模式，最后将该文件存盘。</p></blockquote> <ol start="2"><li>运行<code>gcc file.c -o myfile</code>，编译该文件，会看到什么？尝试理解其含义。</li></ol> <div class="language-shell extra-class"><pre class="language-shell"><code>$ gcc file.c <span class="token parameter variable">-o</span> myfile
+</code></pre></div><ol start="3"><li>重新进入vi，对该文件进行修改。然后存盘，退出vi。重新编译该文件。如果编译通过了，可以用<code>./myfile</code>运行该程序。</li></ol> <blockquote><p><code>./</code>(点斜杠)的意思是执行当前目录下的某个可执行文件</p></blockquote> <ol start="4"><li>运行<code>man date &gt; file2</code>，然后<code>vi file2</code>。使用<code>x</code>，<code>dd</code>等命令删除某些文本行。使用<code>u</code>命令复原此前的情况。</li></ol></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/OS_lab_tutorial/assets/js/app.89178a6a.js" defer></script><script src="/OS_lab_tutorial/assets/js/2.c8cb3ded.js" defer></script><script src="/OS_lab_tutorial/assets/js/19.e6faabc9.js" defer></script>
+  </body>
+</html>

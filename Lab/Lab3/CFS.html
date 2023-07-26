@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>完全公平调度算法 | 操作系统实验</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    
+    <meta name="description" content="Welcome!">
+    
+    <link rel="preload" href="/OS_lab_tutorial/assets/css/0.styles.2f6240cd.css" as="style"><link rel="preload" href="/OS_lab_tutorial/assets/js/app.89178a6a.js" as="script"><link rel="preload" href="/OS_lab_tutorial/assets/js/2.c8cb3ded.js" as="script"><link rel="preload" href="/OS_lab_tutorial/assets/js/6.57c94bd7.js" as="script"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/10.5ebf413d.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/11.200f74b4.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/12.4cc6c98d.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/13.998b891f.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/14.6b7a4b5a.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/15.bc4d5a7a.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/16.8ebd2fe3.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/17.8d1b5bf3.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/18.9c87ca2c.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/19.e6faabc9.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/20.e058da2f.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/21.10fa2e7e.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/22.375e31fe.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/23.315d5d26.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/24.d71214e7.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/25.16a1534c.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/26.c147a9df.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/27.2fa28835.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/28.927599e9.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/29.2ce29199.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/3.5abf2526.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/30.2fd6251c.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/31.85f590ac.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/32.5915c657.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/33.9a9ef205.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/4.6e900440.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/5.181e85ad.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/7.f0cd3fe5.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/8.3ff2a59e.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/9.273b3972.js">
+    <link rel="stylesheet" href="/OS_lab_tutorial/assets/css/0.styles.2f6240cd.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/OS_lab_tutorial/" class="home-link router-link-active"><!----> <span class="site-name">操作系统实验</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/OS_lab_tutorial/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="实验教程" class="dropdown-title"><span class="title">实验教程</span> <span class="arrow down"></span></button> <button type="button" aria-label="实验教程" class="mobile-dropdown-title"><span class="title">实验教程</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab1.html" class="nav-link">
+  实验1-熟悉类Linux系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab2.html" class="nav-link">
+  实验2-进程创建与进程间通信
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab3/" class="nav-link router-link-active">
+  实验3-进程调度算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab4/" class="nav-link">
+  实验4-存储管理算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab5.html" class="nav-link">
+  实验5-文件管理系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab6.html" class="nav-link">
+  实验6-网络编程(暂定)
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程练习" class="dropdown-title"><span class="title">课程练习</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程练习" class="mobile-dropdown-title"><span class="title">课程练习</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab1.html" class="nav-link">
+  实验1-熟悉类Linux系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab2.html" class="nav-link">
+  实验2-进程创建与进程间通信
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab3.html" class="nav-link">
+  实验3-进程调度算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab4.html" class="nav-link">
+  实验4-存储管理算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab5.html" class="nav-link">
+  实验5-文件管理系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab6.html" class="nav-link">
+  实验6-网络编程(暂定)
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="附录" class="dropdown-title"><span class="title">附录</span> <span class="arrow down"></span></button> <button type="button" aria-label="附录" class="mobile-dropdown-title"><span class="title">附录</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab1.html" class="nav-link">
+  实验1-熟悉类Linux系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab2.html" class="nav-link">
+  实验2-进程创建与进程间通信
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab3.html" class="nav-link">
+  实验3-进程调度算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab4.html" class="nav-link">
+  实验4-存储管理算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab5.html" class="nav-link">
+  实验5-文件管理系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab6.html" class="nav-link">
+  实验6-网络编程(暂定)
+</a></li></ul></div></div><div class="nav-item"><a href="/OS_lab_tutorial/about.html" class="nav-link">
+  关于我们
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/OS_lab_tutorial/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="实验教程" class="dropdown-title"><span class="title">实验教程</span> <span class="arrow down"></span></button> <button type="button" aria-label="实验教程" class="mobile-dropdown-title"><span class="title">实验教程</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab1.html" class="nav-link">
+  实验1-熟悉类Linux系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab2.html" class="nav-link">
+  实验2-进程创建与进程间通信
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab3/" class="nav-link router-link-active">
+  实验3-进程调度算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab4/" class="nav-link">
+  实验4-存储管理算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab5.html" class="nav-link">
+  实验5-文件管理系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab6.html" class="nav-link">
+  实验6-网络编程(暂定)
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程练习" class="dropdown-title"><span class="title">课程练习</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程练习" class="mobile-dropdown-title"><span class="title">课程练习</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab1.html" class="nav-link">
+  实验1-熟悉类Linux系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab2.html" class="nav-link">
+  实验2-进程创建与进程间通信
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab3.html" class="nav-link">
+  实验3-进程调度算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab4.html" class="nav-link">
+  实验4-存储管理算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab5.html" class="nav-link">
+  实验5-文件管理系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab6.html" class="nav-link">
+  实验6-网络编程(暂定)
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="附录" class="dropdown-title"><span class="title">附录</span> <span class="arrow down"></span></button> <button type="button" aria-label="附录" class="mobile-dropdown-title"><span class="title">附录</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab1.html" class="nav-link">
+  实验1-熟悉类Linux系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab2.html" class="nav-link">
+  实验2-进程创建与进程间通信
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab3.html" class="nav-link">
+  实验3-进程调度算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab4.html" class="nav-link">
+  实验4-存储管理算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab5.html" class="nav-link">
+  实验5-文件管理系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab6.html" class="nav-link">
+  实验6-网络编程(暂定)
+</a></li></ul></div></div><div class="nav-item"><a href="/OS_lab_tutorial/about.html" class="nav-link">
+  关于我们
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>进程调度</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/OS_lab_tutorial/Lab/Lab3/" aria-current="page" class="sidebar-link">任务说明</a></li><li><a href="/OS_lab_tutorial/Lab/Lab3/RR.html" class="sidebar-link">RR调度算法</a></li><li><a href="/OS_lab_tutorial/Lab/Lab3/SJF.html" class="sidebar-link">SJF调度算法</a></li><li><a href="/OS_lab_tutorial/Lab/Lab3/CFS.html" aria-current="page" class="active sidebar-link">CFS调度算法</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Lab/Lab3/CFS.html#调度策略与算法原理" class="sidebar-link">调度策略与算法原理</a></li><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Lab/Lab3/CFS.html#实验步骤" class="sidebar-link">实验步骤</a></li><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Lab/Lab3/CFS.html#实验结果" class="sidebar-link">实验结果</a></li><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Lab/Lab3/CFS.html#参考资料" class="sidebar-link">参考资料</a></li></ul></li><li><a href="/OS_lab_tutorial/Lab/Lab3/MLFQ.html" class="sidebar-link">MLFQ调度算法</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="完全公平调度算法"><a href="#完全公平调度算法" class="header-anchor">#</a> 完全公平调度算法</h1> <h2 id="调度策略与算法原理"><a href="#调度策略与算法原理" class="header-anchor">#</a> 调度策略与算法原理</h2> <h3 id="知名应用"><a href="#知名应用" class="header-anchor">#</a> 知名应用</h3> <p>​	CFS（Completely Fair Scheduler，完全公平调度器）是一种进程调度策略，最早引入于Linux内核2.6.23版本。CFS的目标是在多核系统中提供公平的CPU时间分配，并以纳秒级的精度进行调度。</p> <p>​	CFS调度策略通过动态地调整进程的虚拟运行时间，使得每个进程能够公平地获得CPU时间，从而提供更好的公平性和响应性。它适用于多核系统和服务器环境，能够高效地管理并调度各种类型的任务，确保系统资源的公平分配。</p> <h3 id="具体原理"><a href="#具体原理" class="header-anchor">#</a> 具体原理</h3> <p>​		CFS算法实现起来并不困难，难点在于理解其算法的数学原理为什么会成就CFS的高效性、公平性。</p> <h4 id="关键概念"><a href="#关键概念" class="header-anchor">#</a> 关键概念</h4> <ul><li><p><strong>nice权重表格</strong></p></li> <li><p><strong>调度周期</strong></p></li></ul> <p>​		在某个时间长度可以保证运行队列中的每个进程至少运行一次，我们把这个时间长度称为调度周期。也称为调度延迟，因为一个进程等待被调度的延迟时间是一个调度周期 <code>sched_lantency</code>。</p> <ul><li><strong>最小粒度</strong></li></ul> <p>​		确保进程运行一段时间后才会被抢占。如果进程的时间片长度大于最小粒度，那么当进程的实际运行时间等于或大于最小粒度的时候，刚唤醒的进程才可以抢占它，不需要等它用完一个完整的时间片。如果进程的时间片长度小于最小粒度，那么进程用完时间片以后就可以被抢占，不保证进程的实际运行时间等于或大于最小粒度。</p> <p>​		在示例代码中，调度周期的默认值是6毫秒，最小粒度的默认值是0.75毫秒，一般来说，服务器的任务多为计算密集型任务，其最小粒度和调度周期都会相对我们的示例大一些。</p> <p><strong>补充：</strong> 如何理解上面两个概念？</p> <p>​		CFS要求在一个调度周期内每一个进程都能被执行至少一次。如果假设第$i$号进程每一次被调度都能获得运行时间的长度为$time_slice[i]$， 那么有 $\sum time_slice[i] \equiv sched_latency $（代码实现中因为浮点数问题不一定恒等）。 对于优先级高的进程(即nice比较小)，它获得的CPU时间长，反之则获得的CPU时间短。</p> <p>​		那么可以这样子分配：</p> <p>​			<code>time_slice[i] = （time_latency × 进程的权重 / 运行队列中所有进程的权重总和）</code></p> <p>​		这样计算的话，$优先级高 \rightarrow 权重大 \rightarrow 获得的cpu时间多$。</p> <p>​		上面的 <code>time_slice[i]</code> 仍然是真实的时间，是实实在在分配给进程的时间，但是我们后面要引出一个虚拟运行时间。</p> <ul><li><strong>虚拟运行时间 vruntime</strong></li></ul> <p>​		如果把cpu运行时间也看作一种资源，为了保证资源得到公平分配，运行时间少的进程将得到更多的资源以弥补它们在过去获得的资源的不足。所以CFS定义了一个 “虚拟运行时间” 来定义一个进程获得资源的多与少，每一次调度都选择 vruntime 最小的进程，把CPU资源分配给他。</p> <p>​		计算公式为：$vruntime = real_runtime * \frac{优先级为0的进程的权重}{进程权重}$  ， 其中权重由优先级决定，可看代码中的<code>sched_nice_to_weight</code> 数组，优先级为<code>0</code>的进程权重为<code>1024</code>，每个优先级之间权重比值大概为 <code>1.25</code>。</p> <p>​		根据计算公式，每一次执行完成，都需要更新：</p> <p>​		<code>vruntime[i] += time_slice[i] * (优先级为0的进程的权重 / 进程权重)</code></p> <p><strong>补充1：</strong> 如何理解vruntime？</p> <p>​		虚拟运行时间（vruntime）是CFS调度器中的一个重要概念，它衡量了进程在CPU上运行的相对时间，与进程的实际运行时间和权重有关。</p> <p>**补充2：**为什么不直接把运行时间累加到 vruntime 呢？</p> <p>​		这样做可能会导致进程之间的不公平。因为不同优先级（权重）的进程应该获得不同比例的CPU时间，如果直接累加运行时间，那么就忽略了权重的影响，可能会导致高优先级（权重）的进程被低优先级（权重）的进程抢占CPU资源。</p> <h4 id="算法流程"><a href="#算法流程" class="header-anchor">#</a> 算法流程</h4> <p>​	上面描述的各个关键概念的方式零零散散，大部分同学们看完之后可能还是有很多问号，在这里，我们把上面的关键概念串连起来。</p> <p>伪代码如下：</p> <div class="language-ABAP extra-class"><pre class="language-abap"><code>调度开始：
+	<span class="token number">1</span><span class="token punctuation">.</span> 从等待队列中选择vruntime最小的进程，赋值给pick
+	<span class="token number">2</span><span class="token punctuation">.</span> time_slice[pick] <span class="token operator">=</span> （time_latency × 进程的权重 <span class="token operator">/</span> 运行队列中所有进程的权重总和）
+	<span class="token number">3</span><span class="token punctuation">.</span> pick<span class="token punctuation">.</span>burst_time -= time_slice
+	<span class="token number">4</span><span class="token punctuation">.</span> pick<span class="token punctuation">.</span>vruntime += time_slice <span class="token operator">*</span> <span class="token punctuation">(</span>prio_0_weight <span class="token operator">/</span> pick_weight<span class="token punctuation">)</span>
+结束一次调度
+</code></pre></div><h3 id="如何公平"><a href="#如何公平" class="header-anchor">#</a> 如何公平</h3> <p>​	那为什么该算法称为完全公平调度算法？相信经过了上面的分析，你可能满头雾水，也可能恍然大悟，接下来我们通过对比分析讨论到底公平在哪里。</p> <ul><li>Round Robin的时间片轮转为手段、方法公平，虽然每个进程都能轮转，但是有的进程可能一开始就已经得到较多的资源了，这并不代表结果一定公平。</li> <li>CFS考虑了优先级、进程在过去已经获得的资源，所以更能兼顾最终结果的公平。</li></ul> <p>以图说话：左图则为Round Robin算法的结果，右图则为CFS的结果，体现了equality和equity的区别。</p> <img src="/OS_lab_tutorial/assets/img/cfs-equity.93bf6ec9.png" alt="image-20230710104508212" style="zoom:50%;"> <h2 id="实验步骤"><a href="#实验步骤" class="header-anchor">#</a> 实验步骤</h2> <p>​	以下实验编写的属于单进程运行的程序，难以展现出操作系统内核中真实情况下并行计算的场景。不过作者希望通过模拟该算法的实现，学生能够体会到CFS进程调度的算法步骤以及特点。</p> <p>（1）我们设计一个系统内通用的进程控制块，保存进程的所有数据，包括但不限于以下内容：</p> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token keyword">struct</span> <span class="token class-name">Process</span> <span class="token punctuation">{</span>
+	<span class="token keyword">int</span> pid<span class="token punctuation">;</span>          <span class="token comment">// 进程ID</span>
+	string name<span class="token punctuation">;</span>      <span class="token comment">// 进程名称</span>
+	<span class="token keyword">int</span> priority<span class="token punctuation">;</span>     <span class="token comment">// 进程优先级</span>
+
+	<span class="token comment">// 以下时间都以 ns 为单位</span>
+	<span class="token keyword">int</span> arrive_time<span class="token punctuation">;</span>  <span class="token comment">// 进程到达时间</span>
+	<span class="token keyword">int</span> burst_time<span class="token punctuation">;</span>   <span class="token comment">// 进程的总共需要执行时间(为了模拟进程运行而做出的假设)</span>
+	<span class="token keyword">int</span> vruntime<span class="token punctuation">;</span>     <span class="token comment">// 虚拟执行时间</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p>（2）我们不仅仅需要模拟CFS调度算法，还需要模拟在调度过程中操作系统为CFS调度器提供了什么样的帮助，比如在下面的实现中，就使用了CPU时间（无需复制该代码，该代码在第3点的scheduleCFS函数中）：</p> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token comment">/* 操作系统的变量 */</span>
+<span class="token keyword">int</span> current_cpu_time <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>  <span class="token comment">// 假设目前系统刚刚启动，时间为0</span>
+</code></pre></div><p>（3）调度算法的实现：</p> <p>​	为了更加简单明了，每一次寻找最小值只是简单地<code>for</code>循环寻找目标进程，效率为<code>O(n)</code>。如果学生有兴趣提高代码的性能，可以使用堆heap、红黑树等方法优化——这也是应该的。</p> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token comment">// 优先级权重表（nice越高分配到的cpu时间越少）</span>
+<span class="token keyword">const</span> <span class="token keyword">int</span> NICE_OFFSET <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token keyword">int</span> sched_nice_to_weight<span class="token punctuation">[</span><span class="token number">40</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+ <span class="token comment">/* -20 */</span>     <span class="token number">88761</span><span class="token punctuation">,</span>     <span class="token number">71755</span><span class="token punctuation">,</span>     <span class="token number">56483</span><span class="token punctuation">,</span>     <span class="token number">46273</span><span class="token punctuation">,</span>     <span class="token number">36291</span><span class="token punctuation">,</span>
+ <span class="token comment">/* -15 */</span>     <span class="token number">29154</span><span class="token punctuation">,</span>     <span class="token number">23254</span><span class="token punctuation">,</span>     <span class="token number">18705</span><span class="token punctuation">,</span>     <span class="token number">14949</span><span class="token punctuation">,</span>     <span class="token number">11916</span><span class="token punctuation">,</span>
+ <span class="token comment">/* -10 */</span>      <span class="token number">9548</span><span class="token punctuation">,</span>      <span class="token number">7620</span><span class="token punctuation">,</span>      <span class="token number">6100</span><span class="token punctuation">,</span>      <span class="token number">4904</span><span class="token punctuation">,</span>      <span class="token number">3906</span><span class="token punctuation">,</span>
+ <span class="token comment">/*  -5 */</span>      <span class="token number">3121</span><span class="token punctuation">,</span>      <span class="token number">2501</span><span class="token punctuation">,</span>      <span class="token number">1991</span><span class="token punctuation">,</span>      <span class="token number">1586</span><span class="token punctuation">,</span>      <span class="token number">1277</span><span class="token punctuation">,</span>
+ <span class="token comment">/*   0 */</span>      <span class="token number">1024</span><span class="token punctuation">,</span>       <span class="token number">820</span><span class="token punctuation">,</span>       <span class="token number">655</span><span class="token punctuation">,</span>       <span class="token number">526</span><span class="token punctuation">,</span>       <span class="token number">423</span><span class="token punctuation">,</span>
+ <span class="token comment">/*   5 */</span>       <span class="token number">335</span><span class="token punctuation">,</span>       <span class="token number">272</span><span class="token punctuation">,</span>       <span class="token number">215</span><span class="token punctuation">,</span>       <span class="token number">172</span><span class="token punctuation">,</span>       <span class="token number">137</span><span class="token punctuation">,</span>
+ <span class="token comment">/*  10 */</span>       <span class="token number">110</span><span class="token punctuation">,</span>        <span class="token number">87</span><span class="token punctuation">,</span>        <span class="token number">70</span><span class="token punctuation">,</span>        <span class="token number">56</span><span class="token punctuation">,</span>        <span class="token number">45</span><span class="token punctuation">,</span>
+ <span class="token comment">/*  15 */</span>        <span class="token number">36</span><span class="token punctuation">,</span>        <span class="token number">29</span><span class="token punctuation">,</span>        <span class="token number">23</span><span class="token punctuation">,</span>        <span class="token number">18</span><span class="token punctuation">,</span>        <span class="token number">15</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 每一次调用函数都相当于系统重新运行</span>
+<span class="token comment">// 然后根据 proc[] 进程的到达时间和运行时间进行模拟</span>
+<span class="token keyword">void</span> <span class="token function">schedule</span><span class="token punctuation">(</span>Process proc<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">/* 操作系统的变量 */</span>
+	<span class="token keyword">int</span> current_cpu_time             <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>  <span class="token comment">// 假设目前系统刚刚启动，时间为0</span>
+
+  	<span class="token comment">/* CFS算法的变量 */</span>
+	<span class="token keyword">const</span> <span class="token keyword">int</span> PRIO_0_WEIGHT          <span class="token operator">=</span> <span class="token number">1024</span><span class="token punctuation">;</span>  <span class="token comment">// 优先级为0的进程的权重  </span>
+  	<span class="token keyword">int</span> min_vruntime                 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>  <span class="token comment">// CFS算法需要维护的最小虚拟执行时间 </span>
+	<span class="token keyword">int</span> sysctl_sched_min_granularity <span class="token operator">=</span> <span class="token number">750'000ULL</span><span class="token punctuation">;</span>  <span class="token comment">// 最小调度粒度(单位: ns)</span>
+	<span class="token keyword">int</span> sysctl_sched_latency         <span class="token operator">=</span> <span class="token number">6'000'000ULL</span><span class="token punctuation">;</span>  <span class="token comment">// 调度周期(具体定义在'原理'处)</span>
+	<span class="token keyword">int</span> total_weight <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>  <span class="token comment">// 所有进程权重之和</span>
+	<span class="token keyword">int</span> pick<span class="token punctuation">;</span>          <span class="token comment">// 被选进程</span>
+
+	<span class="token comment">/* 模拟需要，如果某一个时间点没有进程到达，那么就直接跳过一段时间 */</span>
+	<span class="token keyword">int</span> min_notarrive_time<span class="token punctuation">;</span>
+
+	<span class="token comment">// 为了实现简单，这里不使用红黑树模拟，每次从数组寻找最小值</span>
+	<span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+		<span class="token comment">// 计算权重之和 (简单默认进程创建之后优先级不再改变，虽然不太现实)</span>
+		total_weight <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+		min_notarrive_time <span class="token operator">=</span> INT_MAX<span class="token punctuation">;</span>
+		<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+			<span class="token keyword">if</span> <span class="token punctuation">(</span>current_cpu_time <span class="token operator">&gt;=</span> proc<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>arrive_time<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 已到达才有效</span>
+				total_weight <span class="token operator">+=</span> sched_nice_to_weight<span class="token punctuation">[</span>proc<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>priority<span class="token punctuation">]</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>  <span class="token comment">// 未到达的做一个统计</span>
+				min_notarrive_time <span class="token operator">=</span> <span class="token function">min</span><span class="token punctuation">(</span>min_notarrive_time<span class="token punctuation">,</span> proc<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>arrive_time<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+		<span class="token punctuation">}</span>
+
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>total_weight <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			current_cpu_time <span class="token operator">=</span> min_notarrive_time<span class="token punctuation">;</span>
+			<span class="token keyword">continue</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+
+
+		<span class="token comment">// 选择下一次运行的程序</span>
+		pick <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span> 
+		<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span>proc<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>burst_time <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">||</span> current_cpu_time <span class="token operator">&lt;</span> proc<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>arrive_time<span class="token punctuation">)</span> 
+				<span class="token keyword">continue</span><span class="token punctuation">;</span>  <span class="token comment">// 过滤掉已经运行完、还未到达的进程</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span>pick <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">||</span> proc<span class="token punctuation">[</span>pick<span class="token punctuation">]</span><span class="token punctuation">.</span>vruntime <span class="token operator">&gt;</span> proc<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>vruntime<span class="token punctuation">)</span>
+				pick <span class="token operator">=</span> i<span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>pick <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+			<span class="token keyword">break</span><span class="token punctuation">;</span> <span class="token comment">// 调度完成</span>
+
+		<span class="token comment">// 假设我们实现的算法是非抢占的</span>
+		<span class="token comment">// 即时间片一旦分配出去，除非进程自己放弃</span>
+		<span class="token comment">// 否则其他进程无法抢断（这里不包括也不考虑中断）</span>
+		<span class="token keyword">int</span> pick_weight <span class="token operator">=</span> sched_nice_to_weight<span class="token punctuation">[</span>proc<span class="token punctuation">[</span>pick<span class="token punctuation">]</span><span class="token punctuation">.</span>priority<span class="token punctuation">]</span><span class="token punctuation">;</span>
+		<span class="token keyword">int</span> calc_time <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span>sysctl_sched_latency <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token number">1.0</span> <span class="token operator">*</span> pick_weight <span class="token operator">/</span> total_weight<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">int</span> time_slice <span class="token operator">=</span> <span class="token function">min</span><span class="token punctuation">(</span>proc<span class="token punctuation">[</span>pick<span class="token punctuation">]</span><span class="token punctuation">.</span>burst_time<span class="token punctuation">,</span> calc_time<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+		<span class="token comment">// 运行 ....... </span>
+		cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;process &quot;</span> <span class="token operator">&lt;&lt;</span> proc<span class="token punctuation">[</span>pick<span class="token punctuation">]</span><span class="token punctuation">.</span>pid <span class="token operator">&lt;&lt;</span> <span class="token string">&quot; name[&quot;</span> <span class="token operator">&lt;&lt;</span> proc<span class="token punctuation">[</span>pick<span class="token punctuation">]</span><span class="token punctuation">.</span>name <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;] burst &quot;</span> <span class="token operator">&lt;&lt;</span> time_slice <span class="token operator">&lt;&lt;</span> <span class="token string">&quot; ns&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span> 
+
+		<span class="token comment">// 更新参数</span>
+		proc<span class="token punctuation">[</span>pick<span class="token punctuation">]</span><span class="token punctuation">.</span>burst_time <span class="token operator">-=</span> time_slice<span class="token punctuation">;</span>
+		<span class="token comment">// vruntime 的更新是CFS的精髓</span>
+		proc<span class="token punctuation">[</span>pick<span class="token punctuation">]</span><span class="token punctuation">.</span>vruntime <span class="token operator">+=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span>time_slice <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token number">1.0</span> <span class="token operator">*</span> PRIO_0_WEIGHT <span class="token operator">/</span> pick_weight<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		
+		<span class="token comment">// 为刚刚到来的进程更新 vruntime，避免因为vruntime过小而一致调度它</span>
+		<span class="token comment">// 先求出min_vruntime</span>
+		min_vruntime <span class="token operator">=</span> INT_MAX<span class="token punctuation">;</span>
+		<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span>proc<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>burst_time <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> proc<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>arrive_time <span class="token operator">&lt;=</span> current_cpu_time<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+				min_vruntime <span class="token operator">=</span> <span class="token function">min</span><span class="token punctuation">(</span>min_vruntime<span class="token punctuation">,</span> proc<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>vruntime<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+		<span class="token punctuation">}</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>min_vruntime <span class="token operator">==</span> INT_MAX<span class="token punctuation">)</span> min_vruntime <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+		<span class="token comment">// 再更新</span>
+		<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span>proc<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>arrive_time <span class="token operator">&gt;</span> current_cpu_time 
+				<span class="token operator">&amp;&amp;</span> proc<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>arrive_time <span class="token operator">&lt;=</span> current_cpu_time <span class="token operator">+</span> time_slice<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+				proc<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>vruntime <span class="token operator">=</span> min_vruntime<span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+		<span class="token punctuation">}</span>
+		<span class="token comment">// 更新系统时间</span>
+		current_cpu_time <span class="token operator">+=</span> time_slice<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>（4）写下main程序：</p> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	Process proc<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+		<span class="token punctuation">{</span>
+			<span class="token number">0</span><span class="token punctuation">,</span>
+			<span class="token string">&quot;init&quot;</span><span class="token punctuation">,</span>
+			NICE_OFFSET <span class="token operator">+</span> <span class="token number">0</span><span class="token punctuation">,</span>  
+			<span class="token number">500'0000</span><span class="token punctuation">,</span>
+			<span class="token number">10'000'000</span><span class="token punctuation">,</span>
+			<span class="token number">0</span><span class="token punctuation">,</span> <span class="token comment">// 必须默认为 0</span>
+		<span class="token punctuation">}</span><span class="token punctuation">,</span>
+		<span class="token punctuation">{</span>
+			<span class="token number">1</span><span class="token punctuation">,</span>
+			<span class="token string">&quot;apic driver&quot;</span><span class="token punctuation">,</span>
+			NICE_OFFSET <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span>
+			<span class="token number">0</span><span class="token punctuation">,</span>
+			<span class="token number">10'000'000</span><span class="token punctuation">,</span>
+			<span class="token number">0</span><span class="token punctuation">,</span> <span class="token comment">// 必须默认为 0</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+	<span class="token function">schedule</span><span class="token punctuation">(</span>proc<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="实验结果"><a href="#实验结果" class="header-anchor">#</a> 实验结果</h2> <img src="/OS_lab_tutorial/assets/img/cfs-result.a83d4cb5.png" alt="image-20230710173552858" style="zoom:80%;"> <h2 id="参考资料"><a href="#参考资料" class="header-anchor">#</a> 参考资料</h2> <p>[1] <a href="https://docs.kernel.org/scheduler/sched-design-CFS.html" target="_blank" rel="noopener noreferrer">CFS Scheduler — The Linux Kernel documentation<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p>[2] <a href="https://zhuanlan.zhihu.com/p/486037199" target="_blank" rel="noopener noreferrer">深入详解完全公平调度算法<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/OS_lab_tutorial/Lab/Lab3/SJF.html" class="prev">
+        SJF调度算法
+      </a></span> <span class="next"><a href="/OS_lab_tutorial/Lab/Lab3/MLFQ.html">
+        MLFQ调度算法
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/OS_lab_tutorial/assets/js/app.89178a6a.js" defer></script><script src="/OS_lab_tutorial/assets/js/2.c8cb3ded.js" defer></script><script src="/OS_lab_tutorial/assets/js/6.57c94bd7.js" defer></script>
+  </body>
+</html>

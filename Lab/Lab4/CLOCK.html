@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>时钟页面置换算法(CLOCK) | 操作系统实验</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    
+    <meta name="description" content="Welcome!">
+    
+    <link rel="preload" href="/OS_lab_tutorial/assets/css/0.styles.2f6240cd.css" as="style"><link rel="preload" href="/OS_lab_tutorial/assets/js/app.89178a6a.js" as="script"><link rel="preload" href="/OS_lab_tutorial/assets/js/2.c8cb3ded.js" as="script"><link rel="preload" href="/OS_lab_tutorial/assets/js/27.2fa28835.js" as="script"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/10.5ebf413d.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/11.200f74b4.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/12.4cc6c98d.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/13.998b891f.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/14.6b7a4b5a.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/15.bc4d5a7a.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/16.8ebd2fe3.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/17.8d1b5bf3.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/18.9c87ca2c.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/19.e6faabc9.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/20.e058da2f.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/21.10fa2e7e.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/22.375e31fe.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/23.315d5d26.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/24.d71214e7.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/25.16a1534c.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/26.c147a9df.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/28.927599e9.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/29.2ce29199.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/3.5abf2526.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/30.2fd6251c.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/31.85f590ac.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/32.5915c657.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/33.9a9ef205.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/4.6e900440.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/5.181e85ad.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/6.57c94bd7.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/7.f0cd3fe5.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/8.3ff2a59e.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/9.273b3972.js">
+    <link rel="stylesheet" href="/OS_lab_tutorial/assets/css/0.styles.2f6240cd.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/OS_lab_tutorial/" class="home-link router-link-active"><!----> <span class="site-name">操作系统实验</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/OS_lab_tutorial/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="实验教程" class="dropdown-title"><span class="title">实验教程</span> <span class="arrow down"></span></button> <button type="button" aria-label="实验教程" class="mobile-dropdown-title"><span class="title">实验教程</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab1.html" class="nav-link">
+  实验1-熟悉类Linux系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab2.html" class="nav-link">
+  实验2-进程创建与进程间通信
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab3/" class="nav-link">
+  实验3-进程调度算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab4/" class="nav-link router-link-active">
+  实验4-存储管理算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab5.html" class="nav-link">
+  实验5-文件管理系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab6.html" class="nav-link">
+  实验6-网络编程(暂定)
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程练习" class="dropdown-title"><span class="title">课程练习</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程练习" class="mobile-dropdown-title"><span class="title">课程练习</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab1.html" class="nav-link">
+  实验1-熟悉类Linux系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab2.html" class="nav-link">
+  实验2-进程创建与进程间通信
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab3.html" class="nav-link">
+  实验3-进程调度算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab4.html" class="nav-link">
+  实验4-存储管理算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab5.html" class="nav-link">
+  实验5-文件管理系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab6.html" class="nav-link">
+  实验6-网络编程(暂定)
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="附录" class="dropdown-title"><span class="title">附录</span> <span class="arrow down"></span></button> <button type="button" aria-label="附录" class="mobile-dropdown-title"><span class="title">附录</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab1.html" class="nav-link">
+  实验1-熟悉类Linux系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab2.html" class="nav-link">
+  实验2-进程创建与进程间通信
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab3.html" class="nav-link">
+  实验3-进程调度算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab4.html" class="nav-link">
+  实验4-存储管理算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab5.html" class="nav-link">
+  实验5-文件管理系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab6.html" class="nav-link">
+  实验6-网络编程(暂定)
+</a></li></ul></div></div><div class="nav-item"><a href="/OS_lab_tutorial/about.html" class="nav-link">
+  关于我们
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/OS_lab_tutorial/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="实验教程" class="dropdown-title"><span class="title">实验教程</span> <span class="arrow down"></span></button> <button type="button" aria-label="实验教程" class="mobile-dropdown-title"><span class="title">实验教程</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab1.html" class="nav-link">
+  实验1-熟悉类Linux系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab2.html" class="nav-link">
+  实验2-进程创建与进程间通信
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab3/" class="nav-link">
+  实验3-进程调度算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab4/" class="nav-link router-link-active">
+  实验4-存储管理算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab5.html" class="nav-link">
+  实验5-文件管理系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab6.html" class="nav-link">
+  实验6-网络编程(暂定)
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程练习" class="dropdown-title"><span class="title">课程练习</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程练习" class="mobile-dropdown-title"><span class="title">课程练习</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab1.html" class="nav-link">
+  实验1-熟悉类Linux系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab2.html" class="nav-link">
+  实验2-进程创建与进程间通信
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab3.html" class="nav-link">
+  实验3-进程调度算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab4.html" class="nav-link">
+  实验4-存储管理算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab5.html" class="nav-link">
+  实验5-文件管理系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab6.html" class="nav-link">
+  实验6-网络编程(暂定)
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="附录" class="dropdown-title"><span class="title">附录</span> <span class="arrow down"></span></button> <button type="button" aria-label="附录" class="mobile-dropdown-title"><span class="title">附录</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab1.html" class="nav-link">
+  实验1-熟悉类Linux系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab2.html" class="nav-link">
+  实验2-进程创建与进程间通信
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab3.html" class="nav-link">
+  实验3-进程调度算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab4.html" class="nav-link">
+  实验4-存储管理算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab5.html" class="nav-link">
+  实验5-文件管理系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab6.html" class="nav-link">
+  实验6-网络编程(暂定)
+</a></li></ul></div></div><div class="nav-item"><a href="/OS_lab_tutorial/about.html" class="nav-link">
+  关于我们
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>存储管理</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/OS_lab_tutorial/Lab/Lab4/" aria-current="page" class="sidebar-link">任务说明</a></li><li><a href="/OS_lab_tutorial/Lab/Lab4/FIFO.html" class="sidebar-link">FIFO页面置换算法</a></li><li><a href="/OS_lab_tutorial/Lab/Lab4/LRU.html" class="sidebar-link">LRU页面置换算法</a></li><li><a href="/OS_lab_tutorial/Lab/Lab4/CLOCK.html" aria-current="page" class="active sidebar-link">CLOCK页面置换算法</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Lab/Lab4/CLOCK.html#置换策略与算法原理" class="sidebar-link">置换策略与算法原理</a></li><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Lab/Lab4/CLOCK.html#实验步骤" class="sidebar-link">实验步骤</a></li><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Lab/Lab4/CLOCK.html#实验样例" class="sidebar-link">实验样例</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="时钟页面置换算法-clock"><a href="#时钟页面置换算法-clock" class="header-anchor">#</a> 时钟页面置换算法(CLOCK)</h1> <h2 id="置换策略与算法原理"><a href="#置换策略与算法原理" class="header-anchor">#</a> 置换策略与算法原理</h2> <p>​	CLOCK页面置换算法的置换策略是淘汰最近未使用的页面，选择在内存中最长时间没有被访问的页面予以淘汰，而替换此时需要调用的页面。</p> <p>​	CLOCK页面置换算法的算法原理是利用一个循环队列来模拟内存中的页面，并为每个页面设置一个访问位。当某个页面首次装入内存中时，或者该页面被访问到时，将其访问位设置为1。当需要淘汰一个页面时，从当前指针所指的位置开始，检查每个页面的访问位。如果是0，则选择该页面换出，并将新页面放入该位置，并将其访问位设置为1；如果是1，则将其访问位置为0，并继续检查下一个位置。如果一轮扫描后所有页面的访问位都是1，则将所有访问位清零，并重新扫描。</p> <p>​	CLOCK页面置换算法的优点是实现起来比较简单，只需要维护一个循环队列和一个指针，不需要移动队列中的元素。CLOCK算法也是一种LRU置换算法的近似算法，能够较好地反映程序局部性原理。</p> <p><strong>扩展：</strong></p> <p>​	CLOCK页面置换算法的缺点是没有考虑到页面是否被修改过的情况，如果一个页面被修改过，则在换出时需要写回磁盘，这会增加I/O开销。</p> <p>​	因此，有一种改进型CLOCK算法，除了访问位外，还增加了一个修改位，用于记录每个页面是否被修改过，并根据不同的情况进行优先级排序。</p> <h2 id="实验步骤"><a href="#实验步骤" class="header-anchor">#</a> 实验步骤</h2> <p>​	接上文，在这里继续完成置换算法的实现。</p> <div class="language-cpp extra-class"><pre class="language-cpp"><code><span class="token comment">// 假设页面的结构体定义如下</span>
+<span class="token keyword">struct</span> <span class="token class-name">Page</span> <span class="token punctuation">{</span>
+  <span class="token keyword">int</span> read<span class="token punctuation">;</span> <span class="token comment">// 读标志</span>
+  <span class="token keyword">int</span> write<span class="token punctuation">;</span> <span class="token comment">// 写标志</span>
+  <span class="token keyword">int</span> time_arrive<span class="token punctuation">;</span> <span class="token comment">// 到达时间</span>
+  <span class="token keyword">int</span> access<span class="token punctuation">;</span> <span class="token comment">// 访问位</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 定义一个页面置换算法CLOCK类</span>
+<span class="token keyword">class</span> <span class="token class-name">CLOCK</span> <span class="token punctuation">{</span>
+<span class="token keyword">private</span><span class="token operator">:</span>
+  <span class="token keyword">int</span> page_num<span class="token punctuation">;</span> <span class="token comment">// 页面数量</span>
+  <span class="token keyword">int</span> mem_size<span class="token punctuation">;</span> <span class="token comment">// 内存大小</span>
+  Page<span class="token operator">*</span> pages<span class="token punctuation">;</span> <span class="token comment">// 页面数组</span>
+  Page<span class="token operator">*</span><span class="token operator">*</span> memory<span class="token punctuation">;</span> <span class="token comment">// 内存数组，用于存放当前正在内存中的页面</span>
+  <span class="token keyword">int</span> pointer<span class="token punctuation">;</span> <span class="token comment">// 指针，用于指向当前检查的位置</span>
+  <span class="token keyword">int</span> page_faults<span class="token punctuation">;</span> <span class="token comment">// 缺页次数</span>
+
+<span class="token keyword">public</span><span class="token operator">:</span>
+  <span class="token comment">// 构造函数，根据给定的页面数量，内存大小和页面数组初始化类的成员变量</span>
+  <span class="token function">CLOCK</span><span class="token punctuation">(</span><span class="token keyword">int</span> pn<span class="token punctuation">,</span> <span class="token keyword">int</span> ms<span class="token punctuation">,</span> Page<span class="token operator">*</span> ps<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    page_num <span class="token operator">=</span> pn<span class="token punctuation">;</span>
+    mem_size <span class="token operator">=</span> ms<span class="token punctuation">;</span>
+    pages <span class="token operator">=</span> ps<span class="token punctuation">;</span>
+    memory <span class="token operator">=</span> <span class="token keyword">new</span> Page<span class="token operator">*</span><span class="token punctuation">[</span>mem_size<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// 动态分配内存数组的空间</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> mem_size<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 初始化内存数组，开始时都为空</span>
+      memory<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">nullptr</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    pointer <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment">// 初始化指针为0，指向第一个位置</span>
+    page_faults <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 析构函数，释放内存数组的空间</span>
+  <span class="token operator">~</span><span class="token function">CLOCK</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">delete</span><span class="token punctuation">[</span><span class="token punctuation">]</span> memory<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token comment">// 执行页面置换算法的函数，根据给定的页面访问序列进行操作，并输出结果</span>
+  <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span>Page<span class="token operator">*</span> query<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token keyword">int</span> len<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 遍历所有页面访问序列</span>
+      <span class="token keyword">bool</span> hit <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span> <span class="token comment">// 是否命中标志</span>
+      <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> mem_size<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 遍历所有内存块</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>memory<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">==</span> query<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 如果当前访问的页面已经在内存中</span>
+          hit <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span> <span class="token comment">// 设置命中标志为真</span>
+          memory<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">-&gt;</span>access <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">// 更新该页面的访问位为1</span>
+          <span class="token keyword">break</span><span class="token punctuation">;</span> <span class="token comment">// 跳出循环</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>hit<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 如果没有命中</span>
+        page_faults<span class="token operator">++</span><span class="token punctuation">;</span> <span class="token comment">// 缺页次数加一</span>
+        <span class="token keyword">bool</span> replaced <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span> <span class="token comment">// 是否替换标志</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span>replaced<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 循环直到找到一个可以替换的位置为止</span>
+          <span class="token keyword">if</span> <span class="token punctuation">(</span>memory<span class="token punctuation">[</span>pointer<span class="token punctuation">]</span><span class="token operator">-&gt;</span>access <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 如果当前指针所指的位置的访问位为0，则可以替换该位置的页面</span>
+            memory<span class="token punctuation">[</span>pointer<span class="token punctuation">]</span> <span class="token operator">=</span> query<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// 将当前访问的页面放入该位置，并将其访问位设置为1</span>
+            memory<span class="token punctuation">[</span>pointer<span class="token punctuation">]</span><span class="token operator">-&gt;</span>access <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+            replaced <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span> <span class="token comment">// 设置替换标志为真，跳出循环</span>
+          <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span> <span class="token comment">// 如果当前指针所指的位置的访问位为1，则将其访问位清零，并继续检查下一个位置</span>
+            memory<span class="token punctuation">[</span>pointer<span class="token punctuation">]</span><span class="token operator">-&gt;</span>access <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+            pointer <span class="token operator">=</span> <span class="token punctuation">(</span>pointer <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">%</span> mem_size<span class="token punctuation">;</span> <span class="token comment">// 指针向前移动一位，如果到达末尾，则回到开头，形成循环队列</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 输出结果</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;CLOCK page replacement algorithm results:&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Page faults: &quot;</span> <span class="token operator">&lt;&lt;</span> page_faults <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Memory contents: &quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> mem_size<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Memory block &quot;</span> <span class="token operator">&lt;&lt;</span> i <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;: &quot;</span><span class="token punctuation">;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>memory<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">!=</span> <span class="token keyword">nullptr</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Page &quot;</span> <span class="token operator">&lt;&lt;</span> memory<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">-</span> pages <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        cout <span class="token operator">&lt;&lt;</span> <span class="token string">&quot;Empty&quot;</span> <span class="token operator">&lt;&lt;</span> endl<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="实验样例"><a href="#实验样例" class="header-anchor">#</a> 实验样例</h2></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/OS_lab_tutorial/Lab/Lab4/LRU.html" class="prev">
+        LRU页面置换算法
+      </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/OS_lab_tutorial/assets/js/app.89178a6a.js" defer></script><script src="/OS_lab_tutorial/assets/js/2.c8cb3ded.js" defer></script><script src="/OS_lab_tutorial/assets/js/27.2fa28835.js" defer></script>
+  </body>
+</html>

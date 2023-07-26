@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Lab-1 熟悉类Linux系统的命令 | 操作系统实验</title>
+    <meta name="generator" content="VuePress 1.9.9">
+    
+    <meta name="description" content="Welcome!">
+    
+    <link rel="preload" href="/OS_lab_tutorial/assets/css/0.styles.2f6240cd.css" as="style"><link rel="preload" href="/OS_lab_tutorial/assets/js/app.89178a6a.js" as="script"><link rel="preload" href="/OS_lab_tutorial/assets/js/2.c8cb3ded.js" as="script"><link rel="preload" href="/OS_lab_tutorial/assets/js/24.d71214e7.js" as="script"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/10.5ebf413d.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/11.200f74b4.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/12.4cc6c98d.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/13.998b891f.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/14.6b7a4b5a.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/15.bc4d5a7a.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/16.8ebd2fe3.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/17.8d1b5bf3.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/18.9c87ca2c.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/19.e6faabc9.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/20.e058da2f.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/21.10fa2e7e.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/22.375e31fe.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/23.315d5d26.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/25.16a1534c.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/26.c147a9df.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/27.2fa28835.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/28.927599e9.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/29.2ce29199.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/3.5abf2526.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/30.2fd6251c.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/31.85f590ac.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/32.5915c657.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/33.9a9ef205.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/4.6e900440.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/5.181e85ad.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/6.57c94bd7.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/7.f0cd3fe5.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/8.3ff2a59e.js"><link rel="prefetch" href="/OS_lab_tutorial/assets/js/9.273b3972.js">
+    <link rel="stylesheet" href="/OS_lab_tutorial/assets/css/0.styles.2f6240cd.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/OS_lab_tutorial/" class="home-link router-link-active"><!----> <span class="site-name">操作系统实验</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/OS_lab_tutorial/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="实验教程" class="dropdown-title"><span class="title">实验教程</span> <span class="arrow down"></span></button> <button type="button" aria-label="实验教程" class="mobile-dropdown-title"><span class="title">实验教程</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab1.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  实验1-熟悉类Linux系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab2.html" class="nav-link">
+  实验2-进程创建与进程间通信
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab3/" class="nav-link">
+  实验3-进程调度算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab4/" class="nav-link">
+  实验4-存储管理算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab5.html" class="nav-link">
+  实验5-文件管理系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab6.html" class="nav-link">
+  实验6-网络编程(暂定)
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程练习" class="dropdown-title"><span class="title">课程练习</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程练习" class="mobile-dropdown-title"><span class="title">课程练习</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab1.html" class="nav-link">
+  实验1-熟悉类Linux系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab2.html" class="nav-link">
+  实验2-进程创建与进程间通信
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab3.html" class="nav-link">
+  实验3-进程调度算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab4.html" class="nav-link">
+  实验4-存储管理算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab5.html" class="nav-link">
+  实验5-文件管理系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab6.html" class="nav-link">
+  实验6-网络编程(暂定)
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="附录" class="dropdown-title"><span class="title">附录</span> <span class="arrow down"></span></button> <button type="button" aria-label="附录" class="mobile-dropdown-title"><span class="title">附录</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab1.html" class="nav-link">
+  实验1-熟悉类Linux系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab2.html" class="nav-link">
+  实验2-进程创建与进程间通信
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab3.html" class="nav-link">
+  实验3-进程调度算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab4.html" class="nav-link">
+  实验4-存储管理算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab5.html" class="nav-link">
+  实验5-文件管理系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab6.html" class="nav-link">
+  实验6-网络编程(暂定)
+</a></li></ul></div></div><div class="nav-item"><a href="/OS_lab_tutorial/about.html" class="nav-link">
+  关于我们
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/OS_lab_tutorial/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="实验教程" class="dropdown-title"><span class="title">实验教程</span> <span class="arrow down"></span></button> <button type="button" aria-label="实验教程" class="mobile-dropdown-title"><span class="title">实验教程</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab1.html" aria-current="page" class="nav-link router-link-exact-active router-link-active">
+  实验1-熟悉类Linux系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab2.html" class="nav-link">
+  实验2-进程创建与进程间通信
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab3/" class="nav-link">
+  实验3-进程调度算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab4/" class="nav-link">
+  实验4-存储管理算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab5.html" class="nav-link">
+  实验5-文件管理系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Lab/Lab6.html" class="nav-link">
+  实验6-网络编程(暂定)
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="课程练习" class="dropdown-title"><span class="title">课程练习</span> <span class="arrow down"></span></button> <button type="button" aria-label="课程练习" class="mobile-dropdown-title"><span class="title">课程练习</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab1.html" class="nav-link">
+  实验1-熟悉类Linux系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab2.html" class="nav-link">
+  实验2-进程创建与进程间通信
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab3.html" class="nav-link">
+  实验3-进程调度算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab4.html" class="nav-link">
+  实验4-存储管理算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab5.html" class="nav-link">
+  实验5-文件管理系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Assignment/Lab6.html" class="nav-link">
+  实验6-网络编程(暂定)
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="附录" class="dropdown-title"><span class="title">附录</span> <span class="arrow down"></span></button> <button type="button" aria-label="附录" class="mobile-dropdown-title"><span class="title">附录</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab1.html" class="nav-link">
+  实验1-熟悉类Linux系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab2.html" class="nav-link">
+  实验2-进程创建与进程间通信
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab3.html" class="nav-link">
+  实验3-进程调度算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab4.html" class="nav-link">
+  实验4-存储管理算法
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab5.html" class="nav-link">
+  实验5-文件管理系统
+</a></li><li class="dropdown-item"><!----> <a href="/OS_lab_tutorial/Appendix/Lab6.html" class="nav-link">
+  实验6-网络编程(暂定)
+</a></li></ul></div></div><div class="nav-item"><a href="/OS_lab_tutorial/about.html" class="nav-link">
+  关于我们
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Lab-1 熟悉类Linux系统的命令</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/OS_lab_tutorial/Lab/Lab1.html#本章导读" class="sidebar-link">本章导读</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/OS_lab_tutorial/Lab/Lab1.html#帮助命令" class="sidebar-link">帮助命令</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Lab/Lab1.html#man命令-显示联机帮助手册" class="sidebar-link">man命令：显示联机帮助手册</a></li><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Lab/Lab1.html#help命令-显示帮助信息" class="sidebar-link">help命令：显示帮助信息</a></li></ul></li><li><a href="/OS_lab_tutorial/Lab/Lab1.html#简单命令" class="sidebar-link">简单命令</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Lab/Lab1.html#date命令-显示时间" class="sidebar-link">date命令：显示时间</a></li><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Lab/Lab1.html#cal命令-显示日历" class="sidebar-link">cal命令：显示日历</a></li><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Lab/Lab1.html#who命令-显示用户信息" class="sidebar-link">who命令：显示用户信息</a></li><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Lab/Lab1.html#clear命令-清除信息" class="sidebar-link">clear命令：清除信息</a></li></ul></li><li><a href="/OS_lab_tutorial/Lab/Lab1.html#文件与目录的操作" class="sidebar-link">文件与目录的操作</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Lab/Lab1.html#pwd命令-显示绝对路径" class="sidebar-link">pwd命令：显示绝对路径</a></li><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Lab/Lab1.html#ls命令-显示所有的文件和目录" class="sidebar-link">ls命令：显示所有的文件和目录</a></li><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Lab/Lab1.html#cd命令-切换目录" class="sidebar-link">cd命令：切换目录</a></li><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Lab/Lab1.html#mkdir命令-创建目录" class="sidebar-link">mkdir命令：创建目录</a></li><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Lab/Lab1.html#rmdir命令-删除目录-空目录" class="sidebar-link">rmdir命令：删除目录(空目录)</a></li><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Lab/Lab1.html#touch命令-创建空文件" class="sidebar-link">touch命令：创建空文件</a></li><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Lab/Lab1.html#cp命令-拷贝文件或目录" class="sidebar-link">cp命令：拷贝文件或目录</a></li><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Lab/Lab1.html#rm命令-删除文件或目录" class="sidebar-link">rm命令：删除文件或目录</a></li><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Lab/Lab1.html#mv命令-移动或重命名" class="sidebar-link">mv命令：移动或重命名</a></li><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Lab/Lab1.html#more命令-文本过滤器" class="sidebar-link">more命令：文本过滤器</a></li><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Lab/Lab1.html#cat命令-查看文件内容或连接文件" class="sidebar-link">cat命令：查看文件内容或连接文件</a></li><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Lab/Lab1.html#命令-输出重定向-追加" class="sidebar-link">&gt; / &gt;&gt;命令：输出重定向/追加</a></li><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Lab/Lab1.html#echo命令-输出内容到控制台" class="sidebar-link">echo命令：输出内容到控制台</a></li><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Lab/Lab1.html#head命令-显示文件开头部分" class="sidebar-link">head命令：显示文件开头部分</a></li><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Lab/Lab1.html#tail命令-显示文件尾部的部分" class="sidebar-link">tail命令：显示文件尾部的部分</a></li><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Lab/Lab1.html#ln命令-在文件间建立链接" class="sidebar-link">ln命令：在文件间建立链接</a></li><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Lab/Lab1.html#chmod命令-修改文件权限" class="sidebar-link">chmod命令：修改文件权限</a></li><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Lab/Lab1.html#gcc命令-编译" class="sidebar-link">gcc命令：编译</a></li></ul></li><li><a href="/OS_lab_tutorial/Lab/Lab1.html#搜索查找类命令" class="sidebar-link">搜索查找类命令</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Lab/Lab1.html#find命令-查找文件" class="sidebar-link">find命令：查找文件</a></li><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Lab/Lab1.html#locate命令-定位文件路径" class="sidebar-link">locate命令：定位文件路径</a></li><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Lab/Lab1.html#which命令-定位指令路径" class="sidebar-link">which命令：定位指令路径</a></li><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Lab/Lab1.html#grep命令-过滤查找-搜索字符串" class="sidebar-link">grep命令：过滤查找（搜索字符串）</a></li></ul></li><li><a href="/OS_lab_tutorial/Lab/Lab1.html#压缩解压类命令" class="sidebar-link">压缩解压类命令</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Lab/Lab1.html#tar命令-打包文件" class="sidebar-link">tar命令：打包文件</a></li><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Lab/Lab1.html#gzip命令-压缩和解压缩文件" class="sidebar-link">gzip命令：压缩和解压缩文件</a></li><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Lab/Lab1.html#unzip命令-压缩和解压缩文件-zip拓展" class="sidebar-link">unzip命令：压缩和解压缩文件(zip拓展)</a></li></ul></li><li><a href="/OS_lab_tutorial/Lab/Lab1.html#编辑命令vi" class="sidebar-link">编辑命令vi</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Lab/Lab1.html#vi编辑器介绍" class="sidebar-link">vi编辑器介绍</a></li><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Lab/Lab1.html#命令模式-command-mode" class="sidebar-link">命令模式（Command mode）</a></li><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Lab/Lab1.html#插入模式-insert-mode" class="sidebar-link">插入模式（Insert mode）</a></li><li class="sidebar-sub-header"><a href="/OS_lab_tutorial/Lab/Lab1.html#底行模式-lastline-mode" class="sidebar-link">底行模式（Lastline mode）</a></li></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="lab-1-熟悉类linux系统的命令"><a href="#lab-1-熟悉类linux系统的命令" class="header-anchor">#</a> Lab-1 熟悉类Linux系统的命令</h1> <h2 id="本章导读"><a href="#本章导读" class="header-anchor">#</a> 本章导读</h2> <p>本章意在介绍Linux系统的常用命令，要求掌握Linux一般命令格式，学会使用man命令来寻求帮助，学习使用命令对有关文件和目录进行操作，利用vi编辑器建立、编辑、显示及加工处理文本文件。</p> <h2 id="帮助命令"><a href="#帮助命令" class="header-anchor">#</a> 帮助命令</h2> <h3 id="man命令-显示联机帮助手册"><a href="#man命令-显示联机帮助手册" class="header-anchor">#</a> <code>man</code>命令：显示联机帮助手册</h3> <p>Linux的命令有很多参数，我们不可能全记住，我们可以通过man命令查看联机手册获取帮助。
+格式：man 命令</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 显示出ls命令的功能及选项的含义</span>
+<span class="token function">man</span> <span class="token function">ls</span>
+</code></pre></div><h3 id="help命令-显示帮助信息"><a href="#help命令-显示帮助信息" class="header-anchor">#</a> <code>help</code>命令：显示帮助信息</h3> <p>同时，也可以使用<code>help</code>命令查看帮助信息.</p> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 显示出ls命令的功能及选项的含义</span>
+<span class="token builtin class-name">help</span> <span class="token function">ls</span>
+</code></pre></div><h2 id="简单命令"><a href="#简单命令" class="header-anchor">#</a> 简单命令</h2> <h3 id="date命令-显示时间"><a href="#date命令-显示时间" class="header-anchor">#</a> <code>date</code>命令：显示时间</h3> <p>显示或设置系统的日期或时间</p> <h3 id="cal命令-显示日历"><a href="#cal命令-显示日历" class="header-anchor">#</a> <code>cal</code>命令：显示日历</h3> <p>显示公元1-9999年中任意一年或任意一个月的日历</p> <h3 id="who命令-显示用户信息"><a href="#who命令-显示用户信息" class="header-anchor">#</a> <code>who</code>命令：显示用户信息</h3> <p>列出所有正在使用系统的用户、所有终端名和注册到系统的时间</p> <h3 id="clear命令-清除信息"><a href="#clear命令-清除信息" class="header-anchor">#</a> <code>clear</code>命令：清除信息</h3> <p>清除屏幕上的信息</p> <h2 id="文件与目录的操作"><a href="#文件与目录的操作" class="header-anchor">#</a> 文件与目录的操作</h2> <p>对文件可以进行的操作有：复制一个文件、显示文件内容、查找指定内容、排序、文件比较、文件删除等</p> <h3 id="pwd命令-显示绝对路径"><a href="#pwd命令-显示绝对路径" class="header-anchor">#</a> <code>pwd</code>命令：显示绝对路径</h3> <blockquote><p><strong>基本语法</strong></p></blockquote> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 查看当前路径</span>
+<span class="token builtin class-name">pwd</span>
+</code></pre></div><h3 id="ls命令-显示所有的文件和目录"><a href="#ls命令-显示所有的文件和目录" class="header-anchor">#</a> <code>ls</code>命令：显示所有的文件和目录</h3> <p>如果未指定目录则默认显示当前目录先的所有文件和目录</p> <blockquote><p>基本语法：<em>ls 目录或文件</em></p></blockquote> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 查看当前路径下所有文件或目录</span>
+<span class="token function">ls</span>
+<span class="token comment"># 查看当前路径下所有文件或目录的详细信息</span>
+<span class="token function">ls</span> <span class="token parameter variable">-l</span>
+<span class="token comment"># 查看当前路径下的隐藏文件</span>
+<span class="token function">ls</span> <span class="token parameter variable">-ai</span>
+</code></pre></div><h3 id="cd命令-切换目录"><a href="#cd命令-切换目录" class="header-anchor">#</a> <code>cd</code>命令：切换目录</h3> <blockquote><p>基本语法：<em>cd 目录</em></p></blockquote> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 切换到 /home 目录下</span>
+<span class="token builtin class-name">cd</span> /a
+<span class="token comment"># 切换到用户主目录</span>
+<span class="token builtin class-name">cd</span> ~
+<span class="token comment"># 切换到上一次访问的目录</span>
+<span class="token builtin class-name">cd</span> -
+<span class="token comment"># 切换到当前目录的上一级</span>
+<span class="token builtin class-name">cd</span> <span class="token punctuation">..</span>
+</code></pre></div><h3 id="mkdir命令-创建目录"><a href="#mkdir命令-创建目录" class="header-anchor">#</a> <code>mkdir</code>命令：创建目录</h3> <blockquote><p>基本语法：<em>mkdir 目录名</em></p></blockquote> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 创建一个 dir 目录(一级)</span>
+<span class="token function">mkdir</span> dir1
+<span class="token comment"># 创建 dir1 目录，其下再创建 dir2 目录(多级)</span>
+<span class="token comment"># -p 选项用于创建多级目录</span>
+<span class="token function">mkdir</span> <span class="token parameter variable">-p</span> dir1/dir2
+</code></pre></div><h3 id="rmdir命令-删除目录-空目录"><a href="#rmdir命令-删除目录-空目录" class="header-anchor">#</a> <code>rmdir</code>命令：删除目录(空目录)</h3> <blockquote><p>基本语法：<em>rmdir 目录名</em></p></blockquote> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 删除 home 下的dir目录</span>
+<span class="token function">rmdir</span> /home/dir
+</code></pre></div><blockquote><blockquote><p>mdir 删除的是空目录，目录下有内容时是无法删除的，-rf 则可删除非空目录</p></blockquote></blockquote> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 强制删除 home 下的 dir 目录</span>
+<span class="token function">rmdir</span> <span class="token parameter variable">-rf</span> /home/dir
+</code></pre></div><h3 id="touch命令-创建空文件"><a href="#touch命令-创建空文件" class="header-anchor">#</a> <code>touch</code>命令：创建空文件</h3> <blockquote><p>基本语法：<em>touch 文件名</em></p></blockquote> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 创建 hello.txt 空文件</span>
+<span class="token function">touch</span> hello.txt
+</code></pre></div><h3 id="cp命令-拷贝文件或目录"><a href="#cp命令-拷贝文件或目录" class="header-anchor">#</a> <code>cp</code>命令：拷贝文件或目录</h3> <blockquote><p>基本语法：<em>cp 源文件 目标文件</em></p></blockquote> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 拷贝 hello.txt 文件到 /tmp/files 目录中</span>
+<span class="token function">cp</span> file.txt /tmp/files
+<span class="token comment"># 递归将 home 下的整个 dir1 目录拷贝到 dir2 目录下</span>
+<span class="token function">cp</span> <span class="token parameter variable">-r</span> /home/dir1 /dir2/
+<span class="token comment"># 如果连续执行相同的拷贝命令系统会一个一个提示是否覆盖文件内的文件</span>
+<span class="token comment"># 这时在 cp 前加一个 \ 就可以进行强制覆盖，不提示</span>
+<span class="token punctuation">\</span>cp <span class="token parameter variable">-r</span> /home/dir1 /dir2/ 
+</code></pre></div><h3 id="rm命令-删除文件或目录"><a href="#rm命令-删除文件或目录" class="header-anchor">#</a> <code>rm</code>命令：删除文件或目录</h3> <blockquote><p>基本语法：<em>rm 文件或目录</em></p></blockquote> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 删除指定的文件 file1.txt</span>
+<span class="token function">rm</span> file.txt
+<span class="token comment"># 删除当前目录下的所有文件</span>
+<span class="token function">rm</span> *
+<span class="token comment"># -r 递归删除 dir1 目录下的所有文件及子目录</span>
+<span class="token function">rm</span> –r dir1
+<span class="token comment"># -f 强制删除文件，不提示</span>
+<span class="token function">rm</span> –f file.txt
+</code></pre></div><h3 id="mv命令-移动或重命名"><a href="#mv命令-移动或重命名" class="header-anchor">#</a> <code>mv</code>命令：移动或重命名</h3> <blockquote><p>基本语法：<em>mv 旧文件名 新文件名、mv /源目录 /目标目录</em></p></blockquote> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 将 file.txt 文件移到上层目录</span>
+<span class="token function">mv</span> file.txt <span class="token punctuation">..</span>
+<span class="token comment"># 将 file1.txt 改名成 file2.txt</span>
+<span class="token function">mv</span> file1.txt file2.txt
+</code></pre></div><blockquote><blockquote><p>重命名的前提是两个文件在同一个目录下</p></blockquote></blockquote> <h3 id="more命令-文本过滤器"><a href="#more命令-文本过滤器" class="header-anchor">#</a> <code>more</code>命令：文本过滤器</h3> <blockquote><p>基本语法：<em>more 要查看的文件</em></p></blockquote> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 查看 file.txt 文件的内容</span>
+<span class="token function">more</span> file.txt
+</code></pre></div><blockquote><blockquote><p>more 指令是一个基于 vim 编辑器的文本过滤器(在后面我们我谈到vim编辑器)</p> <p>可以以全屏幕的方式按页显示文本文件的内容，且有若干快捷键：</p> <p><code>space</code>向下翻一页</p> <p><code>Enter</code>向下翻一行</p> <p><code>q</code>立即离开more，不再显示文件内容</p> <p><code>Ctrl+F</code>向下滚动以一屏</p> <p><code>Ctrl+B</code>返回上一屏</p> <p><code>=</code>输出当前行的行号</p> <p><code>:f</code>输出文件名和当前行的行号</p></blockquote></blockquote> <h3 id="cat命令-查看文件内容或连接文件"><a href="#cat命令-查看文件内容或连接文件" class="header-anchor">#</a> <code>cat</code>命令：查看文件内容或连接文件</h3> <blockquote><p>基本语法：<em>cat 文件</em></p></blockquote> <h3 id="命令-输出重定向-追加"><a href="#命令-输出重定向-追加" class="header-anchor">#</a> <code>&gt; / &gt;&gt;</code>命令：输出重定向/追加</h3> <blockquote><p>重定向 &gt; 会覆盖之前内容，追加 &gt;&gt; 会将新内容添加到之前内容的末尾</p></blockquote> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 和 more 命令搭配使用,逐页显示</span>
+<span class="token function">cat</span> file.txt <span class="token function">more</span>
+<span class="token comment"># 将 file2.txt 附加到 file1.txt 文件之后</span>
+<span class="token function">cat</span> file2.txt <span class="token operator">&gt;&gt;</span> file1.txt
+<span class="token comment"># 将 file1.txt 和 file2.txt 合并成 file3.txt 文件</span>
+<span class="token function">cat</span> file1.txt file2.txt <span class="token operator">&gt;</span> file3.txt
+</code></pre></div><h3 id="echo命令-输出内容到控制台"><a href="#echo命令-输出内容到控制台" class="header-anchor">#</a> <code>echo</code>命令：输出内容到控制台</h3> <blockquote><p>基本语法：<em>echo 输出内容</em></p></blockquote> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 输出环境变量 $PATH</span>
+<span class="token builtin class-name">echo</span> <span class="token environment constant">$PATH</span>
+<span class="token comment"># 输出语句“Hello World”</span>
+<span class="token builtin class-name">echo</span> <span class="token string">&quot;Hello World&quot;</span>
+</code></pre></div><h3 id="head命令-显示文件开头部分"><a href="#head命令-显示文件开头部分" class="header-anchor">#</a> <code>head</code>命令：显示文件开头部分</h3> <blockquote><p>基本语法：<em>head 文件</em></p> <blockquote><p>默认情况下 head 显示文件的前十行</p></blockquote></blockquote> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 查看 file.txt 文件的前 10 行内容</span>
+<span class="token function">head</span> file.txt
+<span class="token comment"># 查看 file.txt 文件的前 5 行内容</span>
+<span class="token function">head</span> <span class="token parameter variable">-n</span> <span class="token number">5</span> file.txt
+</code></pre></div><h3 id="tail命令-显示文件尾部的部分"><a href="#tail命令-显示文件尾部的部分" class="header-anchor">#</a> <code>tail</code>命令：显示文件尾部的部分</h3> <blockquote><p>基本语法：<em>tail 文件</em></p> <blockquote><p>默认情况下 tail 显示文件的后十行</p></blockquote></blockquote> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 查看 file.txt 文件的后 10 行内容</span>
+<span class="token function">tail</span> file.txt
+<span class="token comment"># 查看 file.txt 文件的后 5 行内容</span>
+<span class="token function">tail</span> <span class="token parameter variable">-n</span> <span class="token number">5</span> file.txt
+<span class="token comment"># 查看 file.txt 文件的后 10 行内容，并实时追踪文件更新</span>
+<span class="token function">tail</span> <span class="token parameter variable">-f</span> file.txt 
+</code></pre></div><h3 id="ln命令-在文件间建立链接"><a href="#ln命令-在文件间建立链接" class="header-anchor">#</a> <code>ln命令</code>：在文件间建立链接</h3> <blockquote><p>基本语法：<em>ln [选项] 源文件 目录文件或目录</em></p> <blockquote><p>选项说明：</p> <p><code>-b</code>为删除的文件建立备份</p> <p><code>-d</code>允许root用户建立硬链接</p> <p><code>-F</code>与b相同</p> <p><code>-f</code>强行删除目标文件</p> <p><code>-i</code>在删除文件时给出提示</p> <p><code>-n</code>当目标文件是目录的符号链接时，替代该符号链接</p> <p><code>-s</code>用符号链接代替硬链接(建立符号链接)</p> <p><code>-v</code>输出被链接文件的文件名</p> <blockquote><p>软链接也称符号链接，类似 Windows 中的快捷方式</p> <p>主要存放了链接其他文件的路径，删除软连接的方式与删除文件相同</p></blockquote></blockquote></blockquote> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 创建一个软连接 myroot，连接到 /root 目录</span>
+<span class="token function">ln</span> <span class="token parameter variable">-s</span> /root /myroot
+<span class="token comment"># 删除软连接 myroot</span>
+<span class="token function">rm</span> /myroot
+</code></pre></div><h3 id="chmod命令-修改文件权限"><a href="#chmod命令-修改文件权限" class="header-anchor">#</a> <code>chmod</code>命令：修改文件权限</h3> <blockquote><p>基本语法：<em>chmod [选项] 文件或目录名</em></p> <blockquote><p>选项说明：</p> <p><code>u</code> 文件所有者</p> <p><code>g</code> 文件所属组</p> <p><code>o</code> 其它用户</p> <p><code>a</code> 所有用户</p> <p><code>+</code> 增加权限</p> <p><code>-</code> 取消权限</p> <p><code>=</code> 赋给权限</p> <p><code>r</code> 读权限</p> <p><code>w</code> 写权限</p> <p><code>x</code> 执行权限</p></blockquote></blockquote> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 将 file1.txt 文件设为所有人皆可读写</span>
+<span class="token function">chmod</span> a+rw file1
+<span class="token comment"># 将 file.py 设定为只有该档案拥有者可以执行</span>
+<span class="token function">chmod</span> u+x file.py 
+</code></pre></div><h3 id="gcc命令-编译"><a href="#gcc命令-编译" class="header-anchor">#</a> <code>gcc</code>命令：编译</h3> <blockquote><p>基本语法：<em>gcc [选项] 文件名</em></p> <blockquote><p>常用选项:</p> <p><code>-v</code> 查看gcc编译器的版本，显示gcc执行时的详细过程</p> <p><code>-o</code> 指定输出文件名为file，这个名称不能跟源文件名同名</p> <p><code>-E</code> 只预处理，不会编译、汇编、链接</p> <p><code>-S</code> 只编译，不会汇编、链接</p> <p><code>-c</code> 编译和汇编，不会链接</p></blockquote></blockquote> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 编译 hello.c 并指定输出文件为 hello</span>
+gcc hello.c <span class="token parameter variable">-o</span> hello
+</code></pre></div><h2 id="搜索查找类命令"><a href="#搜索查找类命令" class="header-anchor">#</a> 搜索查找类命令</h2> <h3 id="find命令-查找文件"><a href="#find命令-查找文件" class="header-anchor">#</a> <code>find</code>命令：查找文件</h3> <blockquote><p>基本语法：<em>find 范围 方式 文件</em></p></blockquote> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 根据文件名查找 home 下的 file.txt 文件</span>
+<span class="token function">find</span> /home <span class="token parameter variable">-name</span> file.txt
+<span class="token comment"># 根据用户查找 home 下用户昵称为 DrangonOS 的文件</span>
+<span class="token function">find</span> /home <span class="token parameter variable">-user</span> DrangonOS
+<span class="token comment"># 根据文件大小查找系统中大小为 200M 的文件</span>
+<span class="token function">find</span> / <span class="token parameter variable">-size</span> 200M
+</code></pre></div><h3 id="locate命令-定位文件路径"><a href="#locate命令-定位文件路径" class="header-anchor">#</a> <code>locate</code>命令：定位文件路径</h3> <blockquote><p>基本语法：<em>locate 文件</em></p> <blockquote><p>locate 指令可以快速定位文件路径，利用事先建立的系统中所有文件名称及路径的 locate 数据库实现快速定位文件，无需遍历整个文件系统</p> <p>但为了保证查询准确度，管理员须定期更新locate时刻</p></blockquote></blockquote> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 创建 locate 数据库，第一次使用 locate指令前必须先创建数据库</span>
+updatedb
+<span class="token comment"># 定位 file.txt 文件的路径</span>
+<span class="token function">locate</span> file.txt
+</code></pre></div><h3 id="which命令-定位指令路径"><a href="#which命令-定位指令路径" class="header-anchor">#</a> <code>which</code>命令：定位指令路径</h3> <blockquote><p>基本语法：<em>which 指令</em></p></blockquote> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 检索 cp 指令所在路径</span>
+<span class="token function">which</span> <span class="token function">cp</span>
+<span class="token comment"># 输出</span>
+<span class="token builtin class-name">alias</span> <span class="token assign-left variable">cp</span><span class="token operator">=</span><span class="token string">'cp -i'</span>
+    /usr/bin/cp
+</code></pre></div><h3 id="grep命令-过滤查找-搜索字符串"><a href="#grep命令-过滤查找-搜索字符串" class="header-anchor">#</a> <code>grep</code>命令：过滤查找（搜索字符串）</h3> <blockquote><p>基本语法：<em>grep 查找内容 源文件</em></p> <blockquote><p>grep 命令可以搜索特定字符串来并显示出来，一般用来过滤先前得结果，避免显示太多不必要得信息</p></blockquote></blockquote> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 查找 hello.txt 文件中 “yes” 所在行</span>
+<span class="token function">grep</span> <span class="token string">&quot;yes&quot;</span> hello.txt
+<span class="token comment"># 查找 hello.txt 文件中 “yes” 所在行</span>
+<span class="token function">cat</span> hello.txt <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">&quot;yes&quot;</span>
+<span class="token comment">#  查找 hello.txt 文件中 “yes” 所在行并显示行号</span>
+<span class="token function">cat</span> hello.txt <span class="token operator">|</span> <span class="token function">grep</span> <span class="token parameter variable">-n</span> <span class="token string">&quot;yes&quot;</span>
+</code></pre></div><blockquote><blockquote><blockquote><p><code>|</code>管道命令：将某命令的结果输出给另一命令</p></blockquote></blockquote></blockquote> <h2 id="压缩解压类命令"><a href="#压缩解压类命令" class="header-anchor">#</a> 压缩解压类命令</h2> <h3 id="tar命令-打包文件"><a href="#tar命令-打包文件" class="header-anchor">#</a> <code>tar</code>命令：打包文件</h3> <blockquote><p>基本语法：<em>tar [选项] 内容</em></p> <blockquote><p>选项说明：</p> <p><code>-c</code>创建一个新的tar文件</p> <p><code>-v</code>显示运作过程信息</p> <p><code>-f</code>指定文件名称</p> <p><code>-z</code>调用gzip压缩命令执行压缩；</p> <p><code>-j</code>调用bzip2压缩命令执行压缩</p> <p><code>-t</code>查看压缩文件内容</p> <p><code>-x</code>解开tar文件</p></blockquote></blockquote> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 将 file.tar.gz 解压到当前目录</span>
+<span class="token function">tar</span> <span class="token parameter variable">-zxvf</span> a.tar.gz
+<span class="token comment"># 将 /home 下的文件夹压缩为 file.tar.gz</span>
+<span class="token function">tar</span> <span class="token parameter variable">-zcvf</span> file.tar.gz /home/
+<span class="token comment"># 将 file.tar.gz 解压到 /tmp 目录下</span>
+<span class="token function">tar</span> <span class="token parameter variable">-zxvf</span> file.tar.gz <span class="token parameter variable">-c</span> /tmp
+</code></pre></div><blockquote><blockquote><blockquote><p>tar 打包后的文件为 .tar.gz 文件</p></blockquote></blockquote></blockquote> <h3 id="gzip命令-压缩和解压缩文件"><a href="#gzip命令-压缩和解压缩文件" class="header-anchor">#</a> <code>gzip</code>命令：压缩和解压缩文件</h3> <blockquote><p>基本语法：<em>gzip [选项] 文件</em></p> <blockquote><p>选项说明：</p> <p><code>-c</code>将输出写到标准输出上，并保留原有文件。</p> <p><code>-d</code>将压缩文件解压。</p> <p><code>-l</code>对每个压缩文件，显示下列字段：压缩文件的大小、未压缩文件的大小、压缩比、未压缩文件的名字</p> <p><code>-r</code>递归式地查找指定目录并压缩其中的所有文件或者是解压缩。</p> <p><code>-t</code>测试，检查压缩文件是否完整。</p> <p><code>-v</code>对每一个压缩和解压的文件，显示文件名和压缩比。</p> <p><code>-num</code>用指定的数字num调整压缩的速度，-1或--fast表示最快压缩方法（低压缩比），-9或--best表示最慢压缩方法（高压缩比），系统缺省值为6</p></blockquote></blockquote> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 将usr.tar压缩为usr.tar.gz文件</span>
+<span class="token function">gzip</span> usr.tar
+<span class="token comment"># file1.txt压缩为file1.txt.gz文件</span>
+<span class="token function">gzip</span> file1.txt
+<span class="token comment"># 将压缩文件usr.tar解压，并列出详细的信息</span>
+<span class="token function">gzip</span> –dv usr.tar.gz
+</code></pre></div><h3 id="unzip命令-压缩和解压缩文件-zip拓展"><a href="#unzip命令-压缩和解压缩文件-zip拓展" class="header-anchor">#</a> <code>unzip</code>命令：压缩和解压缩文件(zip拓展)</h3> <blockquote><p>基本语法：<em>unzip [选项] 文件名.zip</em></p> <blockquote><p>选项说明：</p> <p><code>-x</code>文件列表 解压缩文件，但不包括指定的file文件。</p> <p><code>-v</code>查看压缩文件目录，但不解压。</p> <p><code>-t</code>测试文件有无损坏，但不解压。</p> <p><code>-d</code>目录 把压缩文件解到指定目录下。</p> <p><code>-z</code>只显示压缩文件的注解。</p> <p><code>-n</code>不覆盖已经存在的文件。</p> <p><code>-o</code>覆盖已存在的文件且不要求用户确认。</p> <p><code>-j</code>不重建文档的目录结构，把所有文件解压到同一目录下</p></blockquote></blockquote> <div class="language-shell extra-class"><pre class="language-shell"><code><span class="token comment"># 将压缩文件text.zip在当前目录下解压缩</span>
+uzip text.zip
+</code></pre></div><h2 id="编辑命令vi"><a href="#编辑命令vi" class="header-anchor">#</a> 编辑命令vi</h2> <h3 id="vi编辑器介绍"><a href="#vi编辑器介绍" class="header-anchor">#</a> vi编辑器介绍</h3> <p>vi 编辑器是 Linux 系统下的标准编辑器，vi 可以分为三种状态，分别是命令行模式、插入模式和底行模式，各模式的功能区分如下：</p> <ul><li>命令行模式：控制屏幕光标的移动，字符、字或行的删除，移动复制某区段及进入插入模式下，或者到底行模式</li> <li>插入模式：只有在插入模式下，才可以做文字输入，按 ESC 键可回到命令行模式</li> <li>底行模式：将文件保存或退出 vi ，也可以设置编辑环境，如寻找字符串、列出行号等</li></ul> <p>在使用时通常把 vi 简化成两个模式，将底行模式也算入命令行模式</p> <h3 id="命令模式-command-mode"><a href="#命令模式-command-mode" class="header-anchor">#</a> 命令模式（Command mode）</h3> <p>启动 vi ，在系统提示符号输入 vi 及文件名称后，就进入 vi 全屏幕编辑画面，处于命令行模式，可移动光标、删除、移动、复制</p> <blockquote><p><code>i</code>当前光标前插入</p> <p><code>a</code>当前光标后插入</p> <p><code>o</code>当前光标所在行下插入空行</p> <p><code>I</code>当前光标所在行上插入空行</p> <p><code>A</code>插于行首</p> <p><code>O</code>插于行尾</p> <p><code>x</code>删除一个字符</p> <p><code>dd</code>删除光标所在的行</p></blockquote> <h3 id="插入模式-insert-mode"><a href="#插入模式-insert-mode" class="header-anchor">#</a> 插入模式（Insert mode）</h3> <p>切换到插入模式才能够输入文字，在命令行模式下按下字母 i 进入插入模式，进行字符的输入和文件的编辑</p> <blockquote><p>按<code>ESC</code>返回命令模式</p> <p>按<code>ESC</code>后输入“：”，进入底行模式</p></blockquote> <h3 id="底行模式-lastline-mode"><a href="#底行模式-lastline-mode" class="header-anchor">#</a> 底行模式（Lastline mode）</h3> <p>在命令行模式下，按一下冒号 ：键进入底行模式</p> <blockquote><p><code>: w 文件名</code> 将文件以指定文件名保存</p> <p><code>: wq</code> 输入wq，存盘并退出vi</p> <p><code>: q!</code> 输入q!，不存盘强制退出vi</p></blockquote></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/OS_lab_tutorial/assets/js/app.89178a6a.js" defer></script><script src="/OS_lab_tutorial/assets/js/2.c8cb3ded.js" defer></script><script src="/OS_lab_tutorial/assets/js/24.d71214e7.js" defer></script>
+  </body>
+</html>
