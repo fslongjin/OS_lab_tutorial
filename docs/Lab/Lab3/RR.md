@@ -117,7 +117,7 @@ int main() {
 
 ## 实验结果
 
-<img src="D:\DragonOS\dragonos4edu\docs\.vuepress\public\lab3\RR-result.png" alt="image-20230710171839016" style="zoom:80%;" />
+<img src="..\..\.vuepress\public\RR-result.png" alt="image-20230710171839016" style="zoom:80%;" />
 
 
 
