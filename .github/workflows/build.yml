@@ -17,10 +17,10 @@ jobs:
         npm install 
 
     - name: vuepress-deploy
-      uses: jenkey2011/vuepress-deploy@master
+      uses: jenkey2011/vuepress-deploy@main
       env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        TARGET_REPO: username/repo
+        TARGET_REPO: DragonOS-Community/OS_lab_tutorial
         TARGET_BRANCH: main
         BUILD_SCRIPT: npm run docs:build
         BUILD_DIR: docs/.vuepress/dist/
