@@ -34,7 +34,9 @@ int main()
 
 编写程序创建进程树如图所示，在每个进程中显示当前进程标识getpid()和父进程标识getppid()。
 
-![图片1](../.vuepress/public/tree.png '进程树')
+![图片1](src="$withBase('../.vuepress/public/tree.png')" '进程树')
+
+
 
 ### 信号通信
 

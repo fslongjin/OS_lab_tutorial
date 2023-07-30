@@ -24,7 +24,7 @@ sidebar: auto
 
 进程创建的过程示意图如下所示：
 
-<img src="../.vuepress/public/process.png" alt="图片1" title="进程的创建" style="zoom: 67%;" />
+<img src="$withBase('../.vuepress/public/process.png')" alt="图片1" title="进程的创建" style="zoom: 67%;" />
 
 ### 系统调用fork()
 
