@@ -17,7 +17,7 @@ jobs:
         npm install 
 
     - name: vuepress-deploy
-      uses: jenkey2011/vuepress-deploy@main
+      uses: jenkey2011/vuepress-deploy@v1.8.1
       env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         TARGET_REPO: DragonOS-Community/OS_lab_tutorial
