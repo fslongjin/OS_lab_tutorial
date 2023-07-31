@@ -1,11 +1,11 @@
 name: Build and Deploy
-on: [push]
+on: [ push, pull_request ]
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@main
+      uses: actions/checkout@v3
       
     - name: Setup Node.js environment
       uses: actions/setup-node@v3.7.0
@@ -13,14 +13,21 @@ jobs:
         node-version: "12.x"
     
     - name: Install dependencies
+      run: npm install
+    
+    - name: Build
+      run: npm run docs:build
+    
+    - name: Deploy
       run: |
-        npm install 
-
-    - name: vuepress-deploy
-      uses: jenkey2011/vuepress-deploy@v1.8.1
-      env:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        TARGET_REPO: DragonOS-Community/OS_lab_tutorial
-        TARGET_BRANCH: main
-        BUILD_SCRIPT: npm run docs:build
-        BUILD_DIR: docs/.vuepress/dist/
+        pwd
+        cd docs/.vuepress/dist/
+        pwd
+        git init 
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "${{ secrets.DRAGONOS_EMAIL }}"
+        git add .
+        git commit -m "deploy"
+        git push -f git@github.com:DragonOS-Community/OS_lab_tutorial.git master:gh-pages
+        cd -
+        
