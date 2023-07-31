@@ -28,8 +28,9 @@ jobs:
         git init 
         git config --global user.name "github-actions[bot]"
         git config --global user.email "${{ secrets.DRAGONOS_EMAIL }}"
+        git remote add origin https://${{ secrets.ACCESS }}@github.com/DragonOS-Community/OS_lab_tutorial.git
         git add .
         git commit -m "deploy"
-        git push -f git@github.com:DragonOS-Community/OS_lab_tutorial.git :gh-pages
+        git push -f origin master:gh-pages
         cd -
         
