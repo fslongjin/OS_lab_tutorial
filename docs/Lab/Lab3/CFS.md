@@ -98,7 +98,7 @@
 
 以图说话：左图则为Round Robin算法的结果，右图则为CFS的结果，体现了equality和equity的区别。
 
-<img src="..\..\.vuepress\public\cfs-equity.png" alt="image-20230710104508212" style="zoom:50%;" />
+<img src="../../.vuepress/public/cfs-equity.png" alt="image-20230710104508212" style="zoom:50%;" />
 
 
 
@@ -275,7 +275,7 @@ int main() {
 
 ## 实验结果
 
-<img src="..\..\.vuepress\public\cfs-result.png" alt="image-20230710173552858" style="zoom:80%;" />
+<img src="../../.vuepress/public/cfs-result.png" alt="image-20230710173552858" style="zoom:80%;" />
 
 
 
