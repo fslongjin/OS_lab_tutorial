@@ -14,23 +14,26 @@ jobs:
       with:
         node-version: "12.x"
     
-    - name: Install dependencies
+    - name: Cache dependencies
+      id: cache-node-modules
+      uses: actions/cache@v3
+      env:
+        cache-name: cache-node-modules
+      with:
+        path: ./node_modules
+        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('package.json') }}
+    
+    - if: ${{ steps.cache-node-modules.outputs.cache-hit != 'true' }}
+      name: Install dependencies
+      continue-on-error: true
       run: npm install
     
     - name: Build
       run: npm run docs:build
     
     - name: Deploy
-      run: |
-        pwd
-        cd docs/.vuepress/dist/
-        pwd
-        git init 
-        git config --global user.name "github-actions[bot]"
-        git config --global user.email "${{ secrets.DRAGONOS_EMAIL }}"
-        git remote add origin https://${{ secrets.ACCESS_TOKEN }}@github.com/DragonOS-Community/OS_lab_tutorial.git
-        git add .
-        git commit -m "deploy"
-        git push -f origin master:gh-pages
-        cd -
-        
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        publish_dir: ./docs/.vuepress/dist
+
