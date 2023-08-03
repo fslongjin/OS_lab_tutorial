@@ -14,7 +14,18 @@ jobs:
       with:
         node-version: "12.x"
     
-    - name: Install dependencies
+    - name: Cache dependencies
+      id: cache-node-modules
+      uses: actions/cache@v3
+      env:
+        cache-name: cache-node-modules
+      with:
+        path: ./node_modules
+        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('package.json') }}
+    
+    - if: ${{ steps.cache-node-modules.outputs.cache-hit != 'true' }}
+      name: Install dependencies
+      continue-on-error: true
       run: npm install
     
     - name: Build
