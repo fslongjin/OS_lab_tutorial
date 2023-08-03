@@ -15,4 +15,6 @@ _book/
 *.mobi
 *.pdf
 
-./docs/.vuepress/dist
+/docs/.vuepress/dist
+package-lock.json
+
